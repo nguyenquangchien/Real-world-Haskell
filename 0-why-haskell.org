@@ -1,35 +1,35 @@
-* Introduction: Why Haskell?
+* Giới thiệu: Tại sao lại là Haskell?
 
-** Have we got a deal for you!
+** Chúng tôi có một thứ mới cho bạn!
 
-Haskell is a deep language, and we think that learning it is a
-hugely rewarding experience. We will focus on three elements as we
-explain why. The first is /novelty/: we invite you to think about
-programming from a different and valuable perspective. The second
-is /power/: we'll show you how to create software that is short,
-fast, and safe. Lastly, we offer you a lot of /fun/: the pleasure
-of applying beautiful programming techniques to solve real
-problems.
+Haskell là một ngôn ngữ sâu sắc, và chúng tôi nghĩ rằng việc học ngôn ngữ này 
+là một trải nghiệm rất đáng giá. Chúng ta sẽ tập trung vào ba yếu tố 
+khi giải thích lí do. Thứ nhất là /tính mới/: chúng tôi mời bạn nghĩ về 
+lập trình từ một góc nhìn khác đi và rất đáng giá. Thứ hai là 
+/năng lực/: chúng tôi sẽ cho bạn thấy cách tạo ra phần mềm ngắn gọn, 
+nhanh và an toàn. Cuối cùng, chúng tôi cho bạn nhiều điều /vui vẻ/: 
+sự hài lòng khi áp dụng những kĩ thuật lập trình thanh lịch để giải 
+những bài toán thực sự.
 
-*** Novelty
+*** Tính mới
 
-Haskell is most likely quite different from any language you've
-ever used before. Compared to the usual set of concepts in a
-programmer's mental toolbox, functional programming offers us a
-profoundly different way to think about software.
+Haskell nhiều khả năng là khác hẳn bất cứ ngôn ngữ nào khác mà bạn 
+từng sử dụng trước đây. So với tập hợp khái niệm thông thường trong 
+không công cụ tư duy của lập trình viên, lập trình hàm cho ta một 
+cách nghĩ khác hẳn về phần mềm.
 
-In Haskell, we de-emphasise code that modifies data. Instead, we
-focus on functions that take immutable values as input and produce
-new values as output. Given the same inputs, these functions
-always return the same results. This is a core idea behind
-functional programming.
+Trong Haskell, ta bỏ sự nhấn mạnh mã lệnh làm thay đổi dữ liệu. 
+Thay vào đó, ta tập trung vào các hàm để nhận vào những giá trị bất biến 
+và rồi tạo kết quả đầu ra là những giá trị mới. Miễn là với cùng đầu vào,
+các hàm này luôn trả lại kết quả giống nhau. Đây là ý tưởng mấu chốt 
+bên trong lập trình hàm.
 
-Along with not modifying data, our Haskell functions usually don't
-talk to the external world; we call these functions /pure/. We
-make a strong distinction between pure code and the parts of our
-programs that read or write files, communicate over network
-connections, or make robot arms move. This makes it easier to
-organize, reason about, and test our programs.
+Cùng với việc không thay đổi dữ liệu, các hàm Haskell của ta thường không 
+nói chuyện với thế giới bên ngoài; ta gọi những hàm này là /thuần khiết/.
+Chúng ta phân biệt rõ giữa mã lệnh thuần khiết và những phần chương trình 
+đọc hoặc ghi file, liên lạc qua kết nối mạng, hoặc làm cử động cánh tay 
+robot. Điều này giúp ta tổ chức, luận ra chương trình, và kiểm thử
+chương trình dễ dàng hơn.
 
 We abandon some ideas that might seem fundamental, such as having
 a ~for~ loop built into the language. We have other, more
@@ -41,7 +41,7 @@ needed: Haskell is a /lazy/ language. Laziness is not merely a
 matter of moving work around: it profoundly affects how we write
 programs.
 
-*** Power
+*** Năng lực
 
 Throughout this book, we will show you how Haskell's alternatives
 to the features of traditional languages are powerful, flexible,
@@ -134,7 +134,7 @@ remain astonished and pleased by how often our Haskell programs
 simply work on the first try, once we fix those compilation
 errors.
 
-** What to expect from this book
+** Bạn sẽ trông chờ gì ở cuốn sách này 
 
 We started this project because a growing number of people are
 using Haskell to solve everyday problems. Because Haskell has its
@@ -189,7 +189,7 @@ way that we present code will evolve, as we move from the basics
 of the language to increasingly powerful and productive features
 and techniques.
 
-** What to expect from Haskell
+** Điều bạn trông chờ từ Haskell
 
 Haskell is a general purpose programming language. It was designed
 without any application niche in mind. Although it takes a strong
@@ -204,7 +204,7 @@ focus of the language is squarely on writing statically typed
 programs, it is possible (though rarely seen) to write Haskell
 code in a dynamically typed manner.
 
-*** Compared to traditional static languages
+*** So sánh với những ngôn ngữ tĩnh truyền thống
 
 Languages that use simple static type systems have been the
 mainstay of the programming world for decades. Haskell is
@@ -239,7 +239,7 @@ more tractable. It supports parallel programming, software
 transactional memory for reliable concurrency, and scales to
 hundreds of thousands of concurrent threads.
 
-*** Compared to modern dynamic languages
+*** So sánh với các ngôn ngữ động hiện đại
 
 Over the past decade, dynamically typed, interpreted languages
 have become increasingly popular. They offer substantial benefits
@@ -285,7 +285,7 @@ beneficial. Two of us have years of experience programming in
 dynamically typed languages. We love working with them; we still
 use them every day; but usually, we prefer Haskell.
 
-*** Haskell in industry and open source
+*** Haskell trong công nghiệp và mã nguồn mở
 
 Here are just a few examples of large software systems that have
 been created in Haskell. Some of these are open source, while
@@ -314,7 +314,7 @@ taken from the [[http://www.haskell.org/haskellwiki/Haskell_in_industry][Haskell
 - Eaton uses Haskell for the design and verification of hydraulic
   hybrid vehicle systems.
 
-*** Compilation, debugging, and performance analysis
+*** Biên dịch, gỡ lỗi, và phân tích hiệu năng
 
 For practical work, almost as important as a language itself is
 the ecosystem of libraries and tools around it. Haskell has a
@@ -335,7 +335,7 @@ features.
   programming
 - Interactive interpreter and debugger
 
-*** Bundled and third party libraries
+*** Những thư viện đi kèm và từ bên thứ ba
 
 The GHC compiler ships with a collection of useful libraries. Here
 are a few of the common programming needs that these libraries
@@ -360,12 +360,12 @@ open source libraries include the following.
 - Desktop GUIs, including cross-platform toolkits
 - Support for Unicode and other text encodings
 
-** A brief sketch of Haskell's history
+** Đôi nét về lịch sử Haskell
 
 The development of Haskell is rooted in mathematics and computer
 science research.
 
-*** Prehistory
+*** Thời tiền sử
 
 A few decades before modern computers were invented, the
 mathematician Alonzo Church developed a language called the lambda
@@ -422,7 +422,7 @@ Other researchers explored how to construct programs using lazy
 functional techniques. Still others used it as a teaching
 language.
 
-*** The modern era
+*** Thời kì hiện đại
 
 While these basic explorations of the 1990s proceeded, Haskell
 remained firmly an academic affair. The informal slogan of those
@@ -453,14 +453,14 @@ culture of open source and commercial users, and researchers
 continue to use it to push the boundaries of performance and
 expressiveness.
 
-** Helpful resources
+** Những tài liệu hữu ích
 
 As you work with Haskell, you're sure to have questions and want
 more information about things. Here are some Internet resources
 where you can look up information and interact with other Haskell
 programmers.
 
-*** Reference material
+*** Tài liệu tham khảo
 
 - [[http://www.haskell.org/ghc/docs/latest/html/libraries/index.html][The Haskell Hierarchical Libraries reference]] provides the
   documentation for the standard library that comes with your
@@ -476,7 +476,7 @@ programmers.
 - [[http://haskell.org/hoogle/][Hoogle]] and [[http://holumbus.fh-wedel.de/hayoo/hayoo.html][Hayoo]] are Haskell API search engines. They can search
   for functions by name or by type.
 
-*** Applications and libraries
+*** Các ứng dụng và thư viện
 
 If you're looking for a Haskell library to use for a particular
 task, or an application written in Haskell, check out the
@@ -489,7 +489,7 @@ following resources.
 - The [[http://haskell.org/haskellwiki/Applications_and_libraries][Haskell Wiki]] contains a section dedicated to information
   about particular Haskell libraries.
 
-*** The Haskell community
+*** Cộng đồng Haskell
 
 There are a number of ways you can get in touch with other Haskell
 programmers, to ask questions, learn what other people are talking
@@ -516,7 +516,7 @@ about, and simply do some social networking with your peers.
   doing with it. It has been running for years, so it provides a
   good way to peer into Haskell's past.
 
-** Acknowledgments
+** Lời cảm tạ
 
 This book would not exist without the Haskell community: an
 anarchic, hopeful cabal of artists, theoreticians and engineers,
@@ -578,7 +578,7 @@ impossible happen.
 
 And, finally, thanks to Suzie, for her insight, patience and love.
 
-*** Thank you to our reviewers
+*** Cảm ơn những người phản biện
 
 We developed this book in the open, posting drafts of chapters to
 our web site as we completed them. Readers then submitted feedback
@@ -744,5 +744,5 @@ Leinweber, Will Robertson, Will Thompson, Wirt Wolff, Wolfgang
 Jeltsch, Yuval Kogman, Zach Kozatek, Zachary Smestad, Zohar
 Kelrich.
 
-Finally, we wish to thank those readers who submitted over 800
-comments anonymously.
+Sau cùng, chúng tôi muốn cảm ơn những độc giả, những người đã gửi 
+hơn 800 ý kiến khuyết danh.
