@@ -1,3 +1,7 @@
+Haskell là một ngôn ngữ lập trình hàm (functional programming language), được cộng đồng lập trình viên ưa chuộng. Mặc dù vậy, ngôn ngữ lại không được phát triển bởi tập đoàn lớn nên chưa được phổ biến. Những tài liệu lập trình Haskell có khá nhiều, song không dễ tìm được một cuốn sách bài bản. Thật may, cuốn sách _Real World Haskell_ cung cấp một tập hướng dẫn khá đầy đủ và thực dụng, giúp ta viết những chương trình thực sự bằng ngôn ngữ Haskell.
+
+Từ trang web gốc:
+
 [[http://book.realworldhaskell.org/][Real World Haskell]] by Bryan O'Sullivan, Don Stewart and John
 Goerzen is an old book (2008) that approach teaching Haskell by
 building small programs. Sadly the language and libraries have
@@ -5,36 +9,36 @@ changed enough to make several of the examples useless so I am
 making them working again. After I finish I pretend to make the
 changes listed as /enhancements/ in the issue tracker.
 
-* Progress
+* Tiến trình
 
-1. DONE [[file:0-why-haskell.org][Introduction]]
-2. DONE [[file:1-getting-started.org][Getting started]]
-3. DONE [[file:2-types-and-functions.org][Types and functions]]
-4. DONE [[file:3-defining-types-streamlining-functions.org][Defining Types, Streamlining Functions]]
-5. DONE [[file:4-functional-programming.org][Functional programming]]
-6. DONE [[file:5-writing-a-library.org][Writing a library]]
-7. DONE [[file:6-using-typeclasses.org][Using type classes]]
-8. DONE [[file:7-io.org][I/O]]
-9. DONE [[file:8-efficient-file-processing-regular-expressions-and-file-name-matching.org][Efficient file processing]]
-10. DONE [[file:9-a-library-for-searching-the-file-system.org][A library for searching the file system]]
-11. DONE [[file:10-parsing-a-binary-data-format.org][Parsing a binary data format]]
-12. DONE [[file:11-testing-and-quality-assurance.org][Testing and quality assurance]]
-13. DONE [[file:12-barcode-recognition.org][Barcode recognition]]
-14. DONE [[file:13-data-structures.org][Data structures]]
-15. DONE [[file:14-using-parsec.org][Using Parsec]]
-16. DONE [[file:15-monads.org][Monads]]
-17. DONE [[file:16-programming-with-monads.org][Programming with monads]]
-18. TODO [[file:17-interfacing-with-c.org][Interfacing with C]]
-19. STARTED [[file:18-monad-transformers.org][Monad transformers]]
-20. STARTED [[file:19-error-handling.org][Error handling]]
-21. TODO [[file:20-systems-programming-in-haskell.org][Systems programming]]
-22. TODO [[file:21-using-databases.org][Using databases]]
-23. TODO [[file:22-web-client-programming.org][Web client programming]]
-24. TODO [[file:23-gui-programming-with-gtk2hs.org][GUI programming with gtk2hs]]
-25. TODO [[file:24-concurrent-and-multicore-programming.org][Concurrent and multicore programming]]
-26. TODO [[file:25-profiling-and-optimization.org][Profiling and optimization]]
-27. TODO [[file:26-building-a-bloom-filter.org][Building a Bloom filter]]
-28. TODO [[file:27-sockets-and-syslog.org][Sockets and syslog]]
-28. TODO [[file:28-software-transactional-memory.org][Software transactional memory]]
-29. TODO [[file:appendix-characters-strings-and-escaping-rules.org][Appendix: Characters, strings and scaping rules]]
-30. TODO [[file:bibliography.org][Bibliography]]
+1. XONG T/A [[file:0-why-haskell.org][Giới thiệu]]
+2. XONG T/A [[file:1-getting-started.org][Khởi đầu]]
+3. XONG T/A [[file:2-types-and-functions.org][Kiểu dữ liệu và hàm]]
+4. XONG T/A [[file:3-defining-types-streamlining-functions.org][Định nghĩa kiểu dữ liệu, xâu chuỗi hàm]]
+5. XONG T/A [[file:4-functional-programming.org][Lập trình hàm]]
+6. XONG T/A [[file:5-writing-a-library.org][Viết một thư viện]]
+7. XONG T/A [[file:6-using-typeclasses.org][Sử dụng lớp kiểu dữ liệu]]
+8. XONG T/A [[file:7-io.org][I/O]]
+9. XONG T/A [[file:8-efficient-file-processing-regular-expressions-and-file-name-matching.org][Xử lý file một cách hiệu quả]]
+10. XONG T/A [[file:9-a-library-for-searching-the-file-system.org][Một thư viện tìm kiếm hệ thống file]]
+11. XONG T/A [[file:10-parsing-a-binary-data-format.org][Bóc tách một định dạng dữ liệu nhị phân]]
+12. XONG T/A [[file:11-testing-and-quality-assurance.org][Kiểm thử và đảm bảo chất lượng]]
+13. XONG T/A [[file:12-barcode-recognition.org][Nhận dạng mã vạch]]
+14. XONG T/A [[file:13-data-structures.org][Cấu trúc dữ liệu]]
+15. XONG T/A [[file:14-using-parsec.org][Sử dụng Parsec]]
+16. XONG T/A [[file:15-monads.org][Các monad]]
+17. XONG T/A [[file:16-programming-with-monads.org][Lập trình với monad]]
+18. CHƯA [[file:17-interfacing-with-c.org][Giao diện với C]]
+19. BẮT ĐẦU T/A [[file:18-monad-transformers.org][Các bộ chuyển monad]]
+20. BẮT ĐẦU T/A [[file:19-error-handling.org][Xử lý lỗi]]
+21. CHƯA [[file:20-systems-programming-in-haskell.org][Lập trình hệ thống]]
+22. CHƯA [[file:21-using-databases.org][Sử dụng cơ sở dữ liệu]]
+23. CHƯA [[file:22-web-client-programming.org][Lập trình phía khách của Web client]]
+24. CHƯA [[file:23-gui-programming-with-gtk2hs.org][Lập trình GUI bằng gtk2hs]]
+25. CHƯA [[file:24-concurrent-and-multicore-programming.org][Lập trình tương tranh và đa nhân]]
+26. CHƯA [[file:25-profiling-and-optimization.org][Phân tích hiệu suất và tối ưu hoá]]
+27. CHƯA [[file:26-building-a-bloom-filter.org][Dựng một bộ lọc Bloom]]
+28. CHƯA [[file:27-sockets-and-syslog.org][Sockets và syslog]]
+28. CHƯA [[file:28-software-transactional-memory.org][Bộ nhớ giao dịch của phần mềm]]
+29. CHƯA [[file:appendix-characters-strings-and-escaping-rules.org][Phụ lục: Kí tự, chuỗi và các quy tắc scaping rules]]
+30. CHƯA [[file:bibliography.org][Tài liệu tham khảo]]
