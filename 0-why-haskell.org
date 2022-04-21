@@ -31,52 +31,54 @@ Chúng ta phân biệt rõ giữa mã lệnh thuần khiết và những phần 
 robot. Điều này giúp ta tổ chức, luận ra chương trình, và kiểm thử
 chương trình dễ dàng hơn.
 
-We abandon some ideas that might seem fundamental, such as having
-a ~for~ loop built into the language. We have other, more
-flexible, ways to perform repetitive tasks.
+Chúng tôi bỏ qua một số ý tưởng mà nghe có vẻ cơ bản, như việc có
+một vòng lặp ~for~ dựng sẵn trong ngôn ngữ. Chúng ta có những cách khác, 
+linh hoạt hơn, để thực hiện việc lặp.
 
-Even the way in which we evaluate expressions is different in
-Haskell. We defer every computation until its result is actually
-needed: Haskell is a /lazy/ language. Laziness is not merely a
-matter of moving work around: it profoundly affects how we write
-programs.
+Ngay cả cách mà chúng ta ước lượng các biểu thức cũng khác trong 
+Haskell. Chúng ta trì hoãn mọi tính toán cho đến khi kết quả phải
+thực sự cần đến: Haskell là ngôn ngữ /lười/. Sự lười biến không phải 
+là đùn đẩy công việc qua lại: nó ảnh hưởng sâu sắc đến cách mà ta
+viết chương trình.
 
 *** Năng lực
 
-Throughout this book, we will show you how Haskell's alternatives
-to the features of traditional languages are powerful, flexible,
-and lead to reliable code. Haskell is positively crammed full of
-cutting edge ideas about how to create great software.
+Xuyên suốt cuốn sach này, chúng tôi sẽ cho bạn thấy rằng
+so với những ngôn ngữ truyền thống, những cái khác của Haskell
+đều rất mạnh mẽ, linh hoạt, và dẫn tói mã lệnh đáng tin cậy. 
+Haskell được tích cực nhồi cho những ý tưởng mới mẻ nhất 
+về cách tạo nên phần mềm tốt.
 
-Since pure code has no dealings with the outside world, and the
-data it works with is never modified, the kinds of nasty surprise
-in which one piece of code invisibly corrupts data used by another
-are very rare. Whatever context we use a pure function in, it will
-behave consistently.
+Vì mã lệnh thuần khiết không dính líu đến môi trường bên ngoài, và 
+dữ liệu mà nó làm việc với thì sẽ không bao giờ thay đổi, nên những
+trường hợp ngạc nhiên khó chịu -- kiểu như chẳng hiểu sao mã lệnh lại 
+làm rối beng dữ liệu dùng bởi một đoạn mã lệnh khác -- là rất hiếm. 
+Bất kể ngữ cảnh nào khi ta dùng một hàm thuần khiết, hàm sẽ luôn ứng xử
+một cách nhất quán.
 
-Pure code is easier to test than code that deals with the outside
-world. When a function only responds to its visible inputs, we can
-easily state properties of its behavior that should always be
-true. We can automatically test that those properties hold for a
-huge body of random inputs, and when our tests pass, we move on.
-We still use traditional techniques to test code that must
-interact with files, networks, or exotic hardware. Since there is
-much less of this impure code than we would find in a traditional
-language, we gain much more assurance that our software is solid.
+Mã lệnh thuần khiết sẽ dễ kiểm thử hơn là mã lệnh có liên lạc với
+môi trường biên ngoài. Khi một hàm chỉ phản hồi với những dữ liệu 
+đầu vào hiện hữu, thì ta dễ dàng nêu những thuộc tính với những ứng xử
+luôn đúng. Ta có thể tự động kiểm tra rằng những thuộc tính đó luôn đúng 
+với một lượng lớn các dữ liệu đầu vào ngẫu nhiên, và khi phép thử đạt 
+yêu cầu, ta sẽ tiếp tục. Ta sẽ vẫn dùng những kĩ thuật truyền thống để 
+kiểm thử mã lệnh có tương tác với file, mạng hay phần cứng ngoại lai. 
+Vì mã lệnh không thuần khiết này sẽ ít gặp so với ở một ngôn ngữ 
+truyền thống, nên sẽ đảm bảo hơn là phần mềm sẽ chắc chắn.
 
-Lazy evaluation has some spooky effects. Let's say we want to find
-the /k/ least-valued elements of an unsorted list. In a
-traditional language, the obvious approach would be to sort the
-list and take the first /k/ elements, but this is expensive. For
-efficiency, we would instead write a special function that takes
-these values in one pass, and it would have to perform some
-moderately complex book-keeping. In Haskell, the sort-then-take
-approach actually performs well: laziness ensures that the list
-will only be sorted enough to find the /k/ minimal
-elements.
+Đánh giá lười biếng cũng có vài hiệu ứng đáng sợ. Chẳng hạn, ta muốn 
+tìm phần tử nhỏ thứ /k/ trong một danh sách chưa được sắp xếp. 
+Với ngôn ngữ truyền thống, cách làm hiển nhiên sẽ là sắp xếp danh sách
+này và lấy ra /k/ phần tử đầu, nhưng cách này lại rất tốn kém.
+Để hiệu quả hơn, thay vì vậy ta sẽ viết một hàm đặc biệt để nhận 
+những giá rị này một lượt, và sẽ phải thực hiện một số thao tác 
+kiểm kê khá phức tạp. Trong Haskell, cách sắp xếp rồi lấy 
+thực ra sẽ hoạt động tốt: tính lười biếng đảm bảo rằng danh sách 
+sẽ chỉ được sắp xếp vừa đủ để tìm thấy phần tử nhỏ /k/ 
+xong là thôi.
 
-Better yet, our Haskell code that operates so efficiently is
-tiny, and uses standard library functions.
+Còn tốt hơn nữa là mã Haskell vận hành trơn tru cũng rất ngắn gọn 
+và chỉ dùng các hàm trong thư viện chuẩn.
 
 #+CAPTION: KMinima.hs
 #+BEGIN_SRC haskell
@@ -85,83 +87,82 @@ tiny, and uses standard library functions.
 minima k xs = take k (sort xs)
 #+END_SRC
 
-It can take a while to develop an intuitive feel for when lazy
-evaluation is important, but when we exploit it, the resulting
-code is often clean, brief, and efficient.
+Để dùng trực quan mà hiểu được khi nào cần có việc ước tính theo cách 
+lười biếng, có lẽ phải mất chút thời gian. Song khi ta khai thác được
+thì mã lệnh thường sẽ ngắn gọn, rõ ràng, và hiệu quả hơn.
 
-As the above example shows, an important aspect of Haskell's power
-lies in the compactness of the code we write. Compared to working
-in popular traditional languages, when we develop in Haskell we
-often write much less code, in substantially less time, and with
-fewer bugs.
+Như ví dụ trên đã cho thấy, một khía cạnh quan trọng của sức mạnh Haskell
+nằm ở chỗ tính súc tích của mã lệnh được viết ra. So với khi làm việc 
+với những ngôn ngữ truyền thống, khi phát triển bằng Haskell ta thường
+viết ít mã lệnh hơn hẳn, với thời gian rút ngắn đáng kể và cũng 
+ít lỗi hơn.
 
-*** Enjoyment
+*** Niềm vui
 
-We believe that it is easy to pick up the basics of Haskell
-programming, and that you will be able to successfully write small
-programs within a matter of hours or days.
+Chúng tôi tin rằng rất dễ dàng học những thứ cơ bản trong lập trình
+Haskell, và bạn sẽ có thể viết thành công những chương trình ngắn 
+sau vài giờ hoặc vài ngày học.
 
-Since effective programming in Haskell differs greatly from other
-languages, you should expect that mastering both the language
-itself and functional programming techniques will require plenty
-of thought and practice.
+Vì việc lập trình hiệu quả bằng Haskell khác hẳn so với những ngôn ngữ
+còn lại, nên bạn cần dự trù rằng việc làm chủ cả bản thân
+ngôn ngữ này lẫn các kĩ thuật lập trình hàm đều mất rất nhiều 
+suy nghĩ và thực hành.
 
-Harking back to our own days of getting started with Haskell, the
-good news is that the fun begins early: it's simply an
-entertaining challenge to dig into a new language, in which so
-many commonplace ideas are different or missing, and to figure out
-how to write simple programs.
+Nhìn lại thời kì trước lúc chúng tôi bắt đầu với Haskell, một tin vui
+là sự hứng khởi bắt đầu rất sớm: đơn giản đó chỉ là một thử thách 
+hấp dẫn để tìm hiểu sâu về một ngôn ngữ, trong đó 
+nhiều ý tưởng thông dụng đã khác đi hoặc còn thiếu, và để hình dung
+ra cách viết một chương trình đơn giản.
 
-For us, the initial pleasure lasted as our experience grew and our
-understanding deepened. In other languages, it's difficult to see
-any connection between science and the nuts-and-bolts of
-programming. In Haskell, we have imported some ideas from abstract
-mathematics and put them to work. Even better, we find that not
-only are these ideas easy to pick up, they have a practical payoff
-in helping us to write more compact, reusable code.
+Đối với chúng tôi, niềm vui ban đâu vẫn còn khi kinh nghiệm dần 
+nâng cao và hiểu biêt sâu hơn. Trong những ngôn ngữ khác, thật khó 
+tìm được những kết nối giữa khoa học lẫn những sự vụ trong lập trình. 
+Trong Haskell, ta đã thu nhập vài ý tưởng từ toán học trừu tượng
+và áp dụng vào công việc. Thậm chí, ta còn thấy rằng những ý tưởng
+này không chỉ dễ học mà chúng còn phát huy tác dụng để giúp ta
+viết được mã lệnh gọn gàng và dễ tái sử dụng hơn.
 
-Furthermore, we won't be putting any "brick walls" in your way:
-there are no especially difficult or gruesome techniques in this
-book that you must master in order to be able to program
-effectively.
+Ngoài ra, chúng tôi sẽ không dựng nên những "bước tường" chắn đường bạn:
+không có khó khăn đặc biệt hay kĩ thuật hiểm hóc nào trong cuốn sách này
+mà bạn cần phải làm chủ để có thể lập trình một cách
+hiệu quả.
 
-That being said, Haskell is a rigorous language: it will make you
-perform more of your thinking up front. It can take a little while
-to adjust to debugging much of your code before you ever run it,
-in response to the compiler telling you that something about your
-program does not make sense. Even with years of experience, we
-remain astonished and pleased by how often our Haskell programs
-simply work on the first try, once we fix those compilation
-errors.
+Dù nói vậy, Haskell là một ngôn ngữ nghiêm ngặt: sẽ mất thêm chút 
+thời gian để gỡ lỗi phần nhiều mã lệnh trước khi chạy được nó, để
+phản hồi cho trình biên dịch báo rằng có chỗ nào trong chương trình
+của bạn vô lí hay không. Ngay cả khi đã có nhiều năm kinh nghiệm, 
+chúng tôi vẫn ngạc nhiên và hài lòng về mức độ thường xuyên mà
+chương trình Haskell chạy được ngay lần thử đầu tiên, một khi 
+chúng tôi sửa được những lỗi biên dịch đó.
 
 ** Bạn sẽ trông chờ gì ở cuốn sách này 
 
-We started this project because a growing number of people are
-using Haskell to solve everyday problems. Because Haskell has its
-roots in academia, few of the Haskell books that currently exist
-focus on the problems and techniques of everyday programming that
-we're interested in.
+Chúng tôi khởi đầu dự án này vì ngày càng có nhiều người sử dụng
+Haskell để giải quyết các bài toán thường ngày. Vì Haskell có 
+nguồn gốc từ giới học thuật nên một số sách Haskell hiện phát hành 
+lại tập trung vào những bài toán và kĩ thuật lập trình thường ngày
+mà ta quan tâm.
 
-With this book, we want to show you how to use functional
-programming and Haskell to solve realistic problems. This is a
-hands-on book: every chapter contains dozens of code samples, and
-many contain complete applications. Here are a few examples of the
-libraries, techniques and tools that we'll show you how to
-develop.
+Với cuốn sách này, chúng tôi muốn cho bạn thấy cách dùng lập trình hàm
+và Haskell để giải các bài toán thực tế. Đây là một cuốn sách
+thực hành: mỗi chương đều có hàng tá mã lệnh ví dụ, và có chương
+chứa cả trình ứng dụng hoàn chỉnh. Sau đây là vài ví dụ các 
+thư viện, kĩ thuật và công cụ mà chúng tôi sẽ cho bạn thấy cách
+xây dựng.
 
-- Create an application that downloads podcast episodes from the
-  Internet, and stores its history in an SQL database.
-- Test your code in an intuitive and powerful way. Describe
-  properties that ought to be true, then let the QuickCheck
-  library generate test cases automatically.
-- Take a grainy phone camera snapshot of a barcode, and turn it
-  into an identifier that you can use to query a library or
-  bookseller's web site.
-- Write code that thrives on the web. Exchange data with servers
-  and clients written in other languages using JSON notation.
-  Develop a concurrent link checker.
+- Tạo một ứng dụng để tải về các kì phát podcast từ
+  Internet, và lưu lịch sử tải về vào trong một cơ sở dữ liệu SQL.
+- Kiểm thử mã lệnh bạn viết theo cách trực quan mạnh mẽ. Mô tả
+  những thuộc tính cần phải giữ đúng, rồi dùng thư viện QuickCheck
+  để tự động phát sinh những kịch bản kiểm thử.
+- Chụp một tấm ảnh nhòe của hàng mã vạch, và biến nó thành 
+  chứng nhận mà bạn có thể dùng để tìm kiếm trong một thư viện
+  hoặc trên web site của một hiệu sách.
+- Viết mã lệnh sinh sôi nảy nở trên web. Trao đổi dữ liệu với 
+  các máy chủ và máy khách được viết bằng những ngôn ngữ khác 
+  thông quá kí hiệu JSON. Xây dựng một bộ kiểm tra link tương tranh.
 
-*** A little bit about you
+*** Về phía bạn
 
 What will you need to know before reading this book? We expect
 that you already know how to program, but if you've never used a
