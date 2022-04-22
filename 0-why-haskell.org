@@ -164,46 +164,47 @@ xây dựng.
 
 *** Về phía bạn
 
-What will you need to know before reading this book? We expect
-that you already know how to program, but if you've never used a
-functional language, that's fine.
+Bạn cần biết gì trước khi đọc cuốn sách này? Chúng tôi dự trù rằng
+bạn đã biết cách lập trình rồi, nhưng nếu bạn chưa từng dùng một
+ngôn ngữ lập trình hàm thì cũng được.
 
-No matter what your level of experience is, we have tried to
-anticipate your needs: we go out of our way to explain new and
-potentially tricky ideas in depth, usually with examples and
-images to drive our points home.
+Bất kể trình độ kinh nghiệm của bạn, chúng tôi đã cố gắng 
+lường trước nhu cầu của bạn: chúng tôi bước xuống và giải thích kĩ
+những ý tưởng mới và có thể là các mẹo, thường dùng các ví dụ
+và hình ảnh để nhấn mạnh những điểm này.
 
-As a new Haskell programmer, you'll inevitably start out writing
-quite a bit of code by hand for which you could have used a
-library function or programming technique, had you just known of
-its existence. We've packed this book with information to help you
-to come up to speed as quickly as possible.
+Là người lập trình mới với Haskell, bạn sẽ không thể tránh khỏi 
+việc tự tay viết vài đoạn mã mà đáng lẽ bạn đã dùng một thư viện
+hoặc một kĩ thuật lập trình nếu bạn đã biết trước. Chúng tôi đưa vào
+cuốn sách này nhiều thông tin để giúp bạn đạt tốc độ 
+càng nhanh càng tốt.
 
-Of course, there will always be a few bumps along the road. If you
-start out anticipating an occasional surprise or difficulty along
-with the fun stuff, you will have the best experience. Any rough
-patches you might hit won't last long.
+Dĩ nhiên, sẽ vẫn có những đoạn gập ghềnh trên con đường ta đi. Nếu bạn
+bắt đầu lường trước những ngạc nhiên hoặc khó khăn đôi lúc xảy ra
+bệnh cạnh phần thú vị, thì đó chính là trải nghiệm tốt nhất. Bất kì
+chỗ gập ghềnh nào bạn va váp sẽ không xảy ra quá lâu.
 
-As you become a more seasoned Haskell programmer, the way that you
-write code will change. Indeed, over the course of this book, the
-way that we present code will evolve, as we move from the basics
-of the language to increasingly powerful and productive features
-and techniques.
+Khi bạn đã thạo lập trình Haskell hơn, cách viết mã lệnh của bạn
+sẽ thay đổi. Thật ra, trong sách này, chúng tôi sẽ trình bày mã lệnh
+theo cách tiến hóa dần, cùng với việc chúng ta chuyển dần từ phần
+cơ bản của ngôn ngữ lên đến những đặc điểm và kĩ thuật lập trình 
+mạnh mẽ hơn và cho kết quả tốt hơn.
 
 ** Điều bạn trông chờ từ Haskell
 
-Haskell is a general purpose programming language. It was designed
-without any application niche in mind. Although it takes a strong
-stand on how programs should be written, it does not favour one
-problem domain over others.
+Haskell là một ngôn ngữ lập trình đa mục đích. Nó được thiết kế 
+mà không nhằm bất kì một phân khúc ứng dụng nào. Dù rằng Haskell 
+giữ vững lập trường về cách viết một chương trình, song nó không
+đề cao một lĩnh vực cụ thể nào cả.
 
-While at its core, the language encourages a pure, lazy style of
-functional programming, this is the /default/, not the only
-option. Haskell also supports the more traditional models of
-procedural code and strict evaluation. Additionally, although the
-focus of the language is squarely on writing statically typed
-programs, it is possible (though rarely seen) to write Haskell
-code in a dynamically typed manner.
+Dù tại gốc rễ của nó, Haskell khuyến khích lập trình hàm với 
+phong cách thuần khiết và "lười biếng", nhưng đó chỉ là 
+/mặc định/, chứ không phải lựa chọn duy nhất. Haskell cũng
+trợ giúp những mô hình truyền thống hơn, với mã lệnh thủ tục và
+ước lượng chặt chẽ. Hơn nữa, mặc dù mục tiêu của ngôn ngữ
+đơn thuần là viết những chương trình định kiểu tĩnh, song cũng
+có thể (dù ít gặp) viết mã lệnh Haskell theo lối định kiểu động.
+
 
 *** So sánh với những ngôn ngữ tĩnh truyền thống
 
