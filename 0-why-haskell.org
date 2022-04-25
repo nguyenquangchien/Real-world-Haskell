@@ -208,38 +208,39 @@ có thể (dù ít gặp) viết mã lệnh Haskell theo lối định kiểu đ
 
 *** So sánh với những ngôn ngữ tĩnh truyền thống
 
-Languages that use simple static type systems have been the
-mainstay of the programming world for decades. Haskell is
-statically typed, but its notion of what types are for, and what
-we can do with them, is much more flexible and powerful than
-traditional languages. Types make a major contribution to the
-brevity, clarity, and efficiency of Haskell programs.
+Các ngôn ngữ sử dụng hệ thống định kiểu tĩnh đơn giản đã 
+giữ vai trò trung tâm của thế giới lập trình trong hàng thập kỉ. 
+Haskell cũng định kiểu tĩnh, nhưng cách viết về tác dụng kiểu dữ liệu 
+và cách dùng chúng thì linh hoạt và mạnh hơn hẳn ở những
+ngôn ngữ truyền thống. Kiểu dữ liệu đã đóng góp quan trọng tới
+sự gọn ghẽ, rõ ràng và hiệu quả của chương trình viết bằng Haskell.
 
-Although powerful, Haskell's type system is often also
-unobtrusive. If we omit explicit type information, a Haskell
-compiler will automatically infer the type of an expression or
-function. Compared to traditional static languages, to which we
-must spoon-feed large amounts of type information, the combination
-of power and inference in Haskell's type system significantly
-reduces the clutter and redundancy of our code.
 
-Several of Haskell's other features combine to further increase
-the amount of work we can fit into a screenful of text. This
-brings improvements in development time and agility: we can create
-reliable code quickly, and easily refactor it in response to
-changing requirements.
+Mặc dù mạnh mẽ, song hệ thống kiểu trong Haskell thường cũng
+không gây chú ý. Nếu ta bỏ không ghi rõ thông tin kiểu, 
+trình biên dịch Haskell sẽ tự động suy luận ra kiểu của một biểu thức
+hay hàm. So với những ngôn ngữ tĩnh truyền thống - ở đó ta phải 
+tư gõ vào rất nhiều thông tin về kiểu - thì sự kết hợp giữa
+sức mạnh và suy luận trong hệ thống kiểu Haskell đã giảm được 
+đáng kể sự vướng víu và dư thừa trong mã lệnh bạn viết.
 
-Sometimes, Haskell programs may run more slowly than similar
-programs written in C or C++. For most of the code we write,
-Haskell's large advantages in productivity and reliability
-outweigh any small performance disadvantage.
+Vài đặc điểm khác của Haskell đã kết hợp để tăng thêm khối lượng 
+công việc mà ta làm được chỉ bằng một trang mã lệnh. Điều này 
+đem tới cải thiện về thời gian phát triển và tính khẩn trương: ta 
+có thể nhanh chóng tạo nên mã lệnh đáng tin cậy, và tái cấu trúc nó
+dễ dàng theo các yêu cầu luôn thay đổi.
 
-Multicore processors are now ubiquitous, but they remain
-notoriously difficult to program using traditional techniques.
-Haskell provides unique technologies to make multicore programming
-more tractable. It supports parallel programming, software
-transactional memory for reliable concurrency, and scales to
-hundreds of thousands of concurrent threads.
+Đôi khi, chương trình viết bằng Haskell có thể chạy chậm hơn những
+chương trình tương tự viết bằng C hay C++. Với đa phần mã lệnh ta viết ra,
+những ưu điểm vượt trội của Haskell về hiệu suất lẫn độ tin cậy thường
+lấn lướt những bất lợi nhỏ về hiệu năng.
+
+Các bộ xử lý đa nhân giờ đây đã phổ biến rộng khắp, nhưng còn rất khó
+để lập trình chúng bằng những kĩ thuật truyền thống.
+Haskell cho ta những công nghệ độc đáo để giúp cho việc lập trình
+đa nhân được dễ kiểm soát hơn. Nó hỗ trợ lập trình song song, 
+bộ nhớ giao dịch phần mềm cho cách tương tranh tin cậy, và mở rộng
+được tới hàng trăm nghìn luồng tương tranh khác nhau.
 
 *** So sánh với các ngôn ngữ động hiện đại
 
