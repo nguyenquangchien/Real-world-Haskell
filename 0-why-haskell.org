@@ -244,30 +244,30 @@ bộ nhớ giao dịch phần mềm cho cách tương tranh tin cậy, và mở 
 
 *** So sánh với các ngôn ngữ động hiện đại
 
-Over the past decade, dynamically typed, interpreted languages
-have become increasingly popular. They offer substantial benefits
-in developer productivity. Although this often comes at the cost
-of a huge performance hit, for many programming tasks productivity
-trumps performance, or performance isn't a significant factor in
-any case.
+Suốt thập kỉ qua, những ngôn ngữ thông dịch định kiểu động 
+đã dần trở nên phổ biến. Chúng cung cấp những lợi ích rõ rệt
+về năng suất phát triển. Mặc dù điều này phải trả giá lớn về
+hiệu năng, vì với nhiều nhiệm vụ lập trình, năng suất được coi trọng
+hơn hiệu năng, hoặc hiệu năng không phải là một yếu tố đáng kể
+về mọi mặt.
 
-Brevity is one area in which Haskell and dynamically typed
-languages perform similarly: in each case, we write much less code
-to solve a problem than in a traditional language. Programs are
-often around the same size in dynamically typed languages and
-Haskell.
+TÍnh ngắn gọn là một khía cạnh mà Haskell và những ngôn ngữ 
+định kiểu động ghi điểm tương đương nhau. Trong cả hai trường hợp,
+để giải quyết bài toán chỉ cần viết ít mã lệnh hẳn so với một
+ngôn ngữ truyền thống. Các chương trình thường có kích thước
+xấp xỉ nhau khi viết bằng ngôn ngữ định kiểu động và Haskell.
 
-When we consider runtime performance, Haskell almost always has a
-huge advantage. Code compiled by the Glasgow Haskell Compiler
-(GHC) is typically between 20 and 60 times faster than code run
-through a dynamic language's interpreter. GHC also provides an
-interpreter, so you can run scripts without compiling them.
+Khi ta xét hiệu năng khi chạy chương trình, Haskell gần như luôn 
+có lợi thế vượt trội. Mã lệnh biên dịch bởi Glasgow Haskell Compiler
+(GHC) nhanh hơn từ 20 đến 60 lần mã lệnh chạy từ trình biên dịch
+của một ngôn ngữ động. GHC còn cung cấp một trình thông dịch,
+vì vậy bạn có thể chạy các đoạn văn lệnh mà không cần biên dịch chúng.
 
-Another big difference between dynamically typed languages and
-Haskell lies in their philosophies around types. A major reason
-for the popularity of dynamically typed languages is that only
-rarely do we need to explicitly mention types. Through automatic
-type inference, Haskell offers the same advantage.
+Một điểm khác biệt lớn giữa các ngôn ngữ định kiểu động và 
+Haskell là ở chỗ triết lí của chúng về kiểu dữ liệu. Một lí do 
+chính mà ngôn ngữ định kiểu động trở nên phổ biến là rất ít khi
+ta cần nói rõ kiểu dữ liệu. Thông qua cơ chế tự động suy luận kiểu,
+Haskell cũng có ưu điểm tương tự.
 
 Beyond this surface similarity, the differences run deep. In a
 dynamically typed language, we can create constructs that are
