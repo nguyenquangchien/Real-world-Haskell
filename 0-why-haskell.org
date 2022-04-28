@@ -269,99 +269,96 @@ chính mà ngôn ngữ định kiểu động trở nên phổ biến là rất 
 ta cần nói rõ kiểu dữ liệu. Thông qua cơ chế tự động suy luận kiểu,
 Haskell cũng có ưu điểm tương tự.
 
-Beyond this surface similarity, the differences run deep. In a
-dynamically typed language, we can create constructs that are
-difficult to express in a statically typed language. However, the
-same is true in reverse: with a type system as powerful as
-Haskell's, we can structure a program in a way that would be
-unmanageable or infeasible in a dynamically typed language.
+Ngoài những điểm tương đồng bên ngoài này, sự khác biệt giữa chúng
+rất sâu sắc. Trong ngôn ngữ định kiểu động, ta có thể tạo những cấu trúc
+mà rất khó diễn đạt bằng ngôn ngữ định kiểu tĩnh. Tuy nhiên, 
+điều ngược lại cũng đúng: với một hệ thống định kiểu mạnh như của
+Haskell thì ta có thể cấu trúc một chương trình theo cách mà nếu dùng
+ngôn ngữ định kiểu động sẽ không thể quản lý được hoặc không khả thi.
 
-It's important to recognise that each of these approaches involves
-tradeoffs. Very briefly put, the Haskell perspective emphasises
-safety, while the dynamically typed outlook favours flexibility.
-If someone had already discovered one way of thinking about types
-that was always best, we imagine that everyone would know about it
-by now.
+Cần nhận thấy rằng mỗi cách tiếp cận này đều phải có sự đánh đổi.
+Nói ngắn gọn, quan điểm của Haskell nhấn mạnh sự an toàn, còn
+hẹ thống định kiểu động thì hướng đến sự linh hoạt. Nếu ai đó
+mà phát hiện ra một cách nghĩ về kiểu sao cho luôn tốt nhất với
+mọi trường hợp thì cứ thử hình dung xem, hẳn là mọi người bây giờ
+đã biết hết về nó rồi.
 
-Of course, we have our own opinions about which tradeoffs are more
-beneficial. Two of us have years of experience programming in
-dynamically typed languages. We love working with them; we still
-use them every day; but usually, we prefer Haskell.
+Dĩ nhiên, chúng tôi có ý kiến riêng về những dánh đổi nào là có lợi.
+Nhóm tác giả có hai người đã có nhiều năm kinh nghiệm về lập trình 
+bằng những ngôn ngữ định kiểu động. Chúng tôi thích làm việc với chúng; 
+chúng tôi vẫn dùng chúng hằng ngày; nhưng chúng tôi thường ưa chuộng Haskell hơn.
 
 *** Haskell trong công nghiệp và mã nguồn mở
 
-Here are just a few examples of large software systems that have
-been created in Haskell. Some of these are open source, while
-others are proprietary products.
+Dưới đây chỉ là một số ví dụ từ hệ thống phần mềm lớn đã được 
+tạo bằng Haskell. Một số phần mềm trong đây có nguồn mở, 
+số còn lại là sản phẩm thương mại.
 
-- ASIC and FPGA design software (Lava, products from Bluespec
+- Phần mềm thiết kế ASIC và FPGA design software (Lava, sản phẩm của Bluespec
   Inc.)
-- Music composition software (Haskore)
-- Compilers and compiler-related tools (most notably GHC)
-- Distributed revision control (Darcs)
-- Web middleware (HAppS, products from Galois Inc.)
+- Phần mềm biên soạn nhạc (Haskore)
+- Trình biên dịch và công cụ liên quan tới biên dịch (nổi bật nhất là GHC)
+- Kiểm soát phiên bản phân phối (Darcs)
+- Phần trung gian Web (middleware) (HAppS, công cụ Galois Inc.)
 
-is a sample of some of the companies using Haskell in late 2008,
-taken from the [[http://www.haskell.org/haskellwiki/Haskell_in_industry][Haskell wiki]].
+Và một số ví dụ các công ty dùng Haskell vào cuối năm 2008,
+theo trang web [[http://www.haskell.org/haskellwiki/Haskell_in_industry][Haskell wiki]].
 
-- ABN AMRO is an international bank. It uses Haskell in investment
-  banking, to measure the counterparty risk on portfolios of
-  financial derivatives.
-- Anygma is a startup company. It develops multimedia content
-  creation tools using Haskell.
-- Amgen is a biotech company. It creates mathematical models and
-  other complex applications in Haskell.
-- Bluespec is an ASIC and FPGA design software vendor. Its
-  products are developed in Haskell, and the chip design languages
-  that its products provide are influenced by Haskell.
-- Eaton uses Haskell for the design and verification of hydraulic
-  hybrid vehicle systems.
+- ABN AMRO, một ngân hàng quốc tế, dùng Haskell cho việc đàu tư;
+  họ dùng Haskell để đo mức độ rủi ro đối tác trên các danh mục đầu tư
+  của chứng khoán phái sinh.
+- Anygma, một công ty khởi nghiệp, phát triển các công cụ sáng tạo 
+  nội dung multimedia bằng Haskell.
+- Amgen, một công ty công nghệ sinh học, dùng Haskell thiết lập các mô hình toán
+  và những ứng dụng phức tạp khác.
+- Bluespec, một nhà cung cấp phần mềm thiết kế ASIC và FPGA design, có sản phẩm 
+  được phát triển bằng Haskell; Haskell cũng ảnh hưởng đến các ngôn ngữ thiết kế chip 
+  cung cấp bởi các sản phẩm đó.
+- Eaton dùng Haskell để thiết kế và thẩm định các hệ thống xe lai thủy lực.
 
 *** Biên dịch, gỡ lỗi, và phân tích hiệu năng
 
-For practical work, almost as important as a language itself is
-the ecosystem of libraries and tools around it. Haskell has a
-strong showing in this area.
+Với công việc thực tế thì quan trọng không chỉ ở bản thân ngôn ngữ
+mà còn là một hệ thống các thư viện và công cụ xung quanh nó. Haskell
+thể hiện rất rõ nét về khía cạnh này.
 
-The most widely used compiler, GHC, has been actively developed
-for over 15 years, and provides a mature and stable set of
-features.
+Trình biên dịch được dùng rộng rãi, GHC, đã được phát triển hơn 
+15 năm qua; nó cung cấp một tập hợp tính năng dày dặn và ổn định.
 
-- Compiles to efficient native code on all major modern operating
-  systems and CPU architectures
-- Easy deployment of compiled binaries, unencumbered by licensing
-  restrictions
-- Code coverage analysis
-- Detailed profiling of performance and memory usage
-- Thorough documentation
-- Massively scalable support for concurrent and multicore
-  programming
-- Interactive interpreter and debugger
+- Biên dịch thành ngon ngữ máy hiệu quả trên tất cả hệ điều hành hiện đại
+  và kiến trúc CPU chính
+- Dễ dàng phân phối các file nhị phân đã biên dịch mà không bị kìm hãm bởi 
+  hạn chế về giấy phép
+- Phân tích độ bao phủ mã
+- Phân tích hiệu suất chi tiết tốc độ và lượng bộ nhớ sử dụng
+- Tài liệu xuyên suốt
+- Hỗ trợ lập trình tương tranh và đa nhân với khả năng phóng đại quy mô
+- Trình thông dịch và gỡ lỗi tương tác
 
 *** Những thư viện đi kèm và từ bên thứ ba
 
-The GHC compiler ships with a collection of useful libraries. Here
-are a few of the common programming needs that these libraries
-address.
+Trình biên dịch GHC được đóng gói với một tập hợp các thư viện hữu ích.
+Dưới dây là một số nhu cầu lập trình thông dụng mà những thư viện này
+có thể giúp ta.
 
-- File I/O, and filesystem traversal and manipulation
-- Network client and server programming
-- Regular expressions and parsing
-- Concurrent programming
-- Automated testing
-- Sound and graphics
+- Nhập/xuất file, duyệt và thao tác hệ thống file
+- Lập trình phía khách và chủ trên mạng
+- Biểu thức thường quy và phân tích từ loại
+- Lập trình tương tranh
+- Kiểm thử tự động
+- Âm thanh và đồ họa
 
-The Hackage package database is the Haskell community's collection
-of open source libraries and applications. Most libraries
-published on Hackage are licensed under liberal terms that permit
-both commercial and open source use. Some of the areas covered by
-open source libraries include the following.
+Cơ sở dữ liệu gói Hackage là tập hợp cac thư viện và ứng dụng nguồn mở
+của cộng đồng Haskell. Hầu hết các thư viện được xuất bản
+trên Hackage đều được gán giấy phép với điều khoản tự do cho phép
+sử dụng cả mục đích thương mại lẫn nguồn mở. Một số lĩnh vực
+mà các thư viện nguồn mở phát triển bao gồm:
 
-- Interfaces to all major open source and commercial databases
-- XML, HTML, and XQuery processing
-- Network and web client and server development
-- Desktop GUIs, including cross-platform toolkits
-- Support for Unicode and other text encodings
+- Giao diện tới tất cả cơ sở dữ liệu quan trọng, cả nguồn mở lẫn thương mại
+- Xử lý XML, HTML, và XQuery
+- Phát triển mạng và máy khách/máy chủ web
+- Giao diện đồ họa trên máy cá nhân, gồm các bộ toolkit chạy trên nhiều nền tảng
+- Hỗ trợ Unicode và các chế độ mã hóa kí tự khác.
 
 ** Đôi nét về lịch sử Haskell
 
