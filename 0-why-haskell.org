@@ -362,73 +362,74 @@ mà các thư viện nguồn mở phát triển bao gồm:
 
 ** Đôi nét về lịch sử Haskell
 
-The development of Haskell is rooted in mathematics and computer
-science research.
+Sự phát triển của Haskell bắt nguồn từ nghiên cứu toán học và 
+khoa học máy tính.
 
 *** Thời tiền sử
 
-A few decades before modern computers were invented, the
-mathematician Alonzo Church developed a language called the lambda
-calculus. He intended it as a tool for investigating the
-foundations of mathematics. The first person to realize the
-practical connection between programming and the lambda calculus
-was John McCarthy, who created Lisp in 1958.
+Vài thập kỉ trước khi các máy tính hiện đại được phát minh ra,
+nhà toán học  Alonzo Church đã phát triển một ngôn ngữ có tên 
+giải tích lambda. Ông đã dự kiến dùng nó làm công cụ khảo sát
+nền tảng của toán học. Người đầu tiên nhận thấy sự kết nối 
+thực dụng giữa lập trình và giải tích lambda là
+John McCarthy, người từng tạo ra Lisp năm 1958.
 
-During the 1960s, computer scientists began to recognise and study
-the importance of the lambda calculus. Peter Landin and
-Christopher Strachey developed ideas about the foundations of
-programming languages: how to reason about what they do
-(operational semantics) and how to understand what they mean
-(denotational semantics).
+Trong suốt những năm 1960, các nhà khoa học máy tính bắt đầu 
+nhận thấy và nghiên cứu tầm quan trọng của giải tích lambda. Peter Landin
+và Christopher Strachey phát triển các ý tưởng về nền tảng
+ngôn ngữ lập trình: cách để suy luận về việc làm của ngôn ngữ lập trình
+(ngữ nghĩa vận hành) và cách hiểu được ý nghĩa của chúng
+(ngữ nghĩa toán học).
 
-In the early 1970s, Robin Milner created a more rigorous
-functional programming language named ML. While ML was developed
-to help with automated proofs of mathematical theorems, it gained
-a following for more general computing tasks.
+Vào đầu những năm 1970, Robin Milner đã tạo ra một ngôn ngữ lập trình
+chặt chẽ hơn có tên là ML. Khi ML được phát triển để giúp
+chứng minh tự động các định lý toán học, nó đã được biết đến nhiều hơn
+với những nhiệm vụ tính toán tổng quát hơn.
 
-The 1970s saw the emergence of lazy evaluation as a novel
-strategy. David Turner developed SASL and KRC, while Rod Burstall
-and John Darlington developed NPL and Hope. NPL, KRC and ML
-influenced the development of several more languages in the 1980s,
-including Lazy ML, Clean, and Miranda.
+Những năm 1970 cũng cho thấy sự nổi lên của một chiến lược tính toán
+mới: phép ước lượng lười biếng. David Turner phát triển SASL và KRC, 
+còn Rod Burstall và John Darlington phát triển NPL và Hope. NPL, KRC 
+và ML đã ảnh hưởng đến sự phát triển của vài ngôn ngữ nữa trong 
+thập niên 1980s, bao gồm Lazy ML, Clean, và Miranda.
 
-*** Early antiquity
+*** Thời xưa
 
-By the late 1980s, the efforts of researchers working on lazy
-functional languages were scattered across more than a dozen
-languages. Concerned by this diffusion of effort, a number of
-researchers decided to form a committee to design a common
-language. After three years of work, the committee published the
-Haskell 1.0 specification in 1990. It named the language after
-Haskell Curry, an influential logician.
+Đến cuối những năm 1980, những nỗ lực nghiên cứu về các ngôn ngữ
+lập trình hàm lười biếng đã rải rác trên hơn một tá các ngôn ngữ
+khác nhau. Băn khoăn với tình trạng phân tán này, một nhóm 
+nghiên cứu đã quyết định thành lập một hội đồng để thiết kế ra
+một ngôn ngữ chung. Sau 3 năm làm việc, Hội đồng đã công bố
+bản mô tả Haskell 1.0 vào năm 1990. Tên gọi này được đặt theo
+Haskell Curry, một nhà logic có tầm ảnh hưởng lớn.
 
-Many people are rightfully suspicious of "design by committee",
-but the work of the Haskell committee is a beautiful example of
-the best work a committee can do. They produced an elegant,
-considered language design, and succeeded in unifying the
-fractured efforts of their research community. Of the thicket of
-lazy functional languages that existed in 1990, only Haskell is
-still actively used.
+Nhiều người hoài nghi về sự "thiết kế bởi một hội đồng"; họ có
+quyền như vậy, song sản phẩm của hội đồng Haskell là một ví dụ 
+đẹp của sản phẩm hoàn hảo mà một hội đồng có thể tạo ra. Họ đã 
+lập nên một bản thiết kế ngôn ngữ tinh tế và đã thành công 
+trong việc thống nhất carc nỗ lực nhen nhóm của từng cộng đồng
+nghiên cứu riêng lẻ. Giữa một rừng các ngôn ngữ lập trình hàm 
+lười biếng còn tồn tại kể từ năm 1990, chỉ có mình Haskell là
+vẫn còn được sử dụng.
 
-Since its publication in 1990, the Haskell language standard has
-seen several revisions, most recently in 2010. A number of Haskell
-implementations have been written, and several are still actively
-developed.
+Từ khi được công bố năm 1990, tiêu chuẩn ngôn ngữ Haskell đã
+trải qua vài lần hiệu đính, lần gần nhất là vào năm 2010. 
+Một số bản hiện thực Haskell đã được viết ra, và một số vẫn 
+được phát triển tích cực.
 
-During the 1990s, Haskell served two main purposes. On one side,
-it gave language researchers a stable language in which to
-experiment with making lazy functional programs run efficiently.
-Other researchers explored how to construct programs using lazy
-functional techniques. Still others used it as a teaching
-language.
+Suốt những năm 1990, Haskell phục vụ hai mục đích chính. Một mặt, nó 
+cung cấp cho giới nghiên cứu một ngôn ngữ ổn định để thử nghiệm 
+việc làm cho các chương trình hàm lười biếng chạy được hiệu quả.
+Những nhà nghiên cứu khác thì khám phá cách lập chương trình 
+bằng các kĩ thuật hàm lười biếng. Thậ chí có nhóm còn sử dụng
+Haskell làm công cụ giảng dạy.
 
 *** Thời kì hiện đại
 
-While these basic explorations of the 1990s proceeded, Haskell
-remained firmly an academic affair. The informal slogan of those
-inside the community was to "avoid success at all costs". Few
-outsiders had heard of the language at all. Indeed, functional
-programming as a field was quite obscure.
+Dù cho những khám phá chính từ thập kỉ 1990 vấn tiếp diễn, Haskell
+còn giữ chỗ đứng chắc chắn trong môi trường học thuật. Khẩu hiệu
+dân dã của cộng đồng Haskell là "bằng bất kì giá nào phải tránh sự thành công". 
+Rất ít người ngoài biết đến ngôn ngữ này. Lập trình hàm thực sự
+là một lĩnh vực khá mơ hồ.
 
 During this time, the mainstream programming world experimented
 with relatively small tweaks: from programming in C, to C++, to
@@ -478,16 +479,15 @@ programmers.
 
 *** Các ứng dụng và thư viện
 
-If you're looking for a Haskell library to use for a particular
-task, or an application written in Haskell, check out the
-following resources.
+Nếu bạn cần tìm một thư viện Haskell để dùng cho mục đích cụ thể,
+hay một ứng dụng viết bằng Haskell, thì hãy rà soát những nguồn sau:
 
-- The Haskell community maintains a central repository of open
-  source Haskell libraries and applications. It's called
-  [[http://hackage.haskell.org/][Hackage]], and it lets you search for software to download, or
-  browse its collection by category.
-- The [[http://haskell.org/haskellwiki/Applications_and_libraries][Haskell Wiki]] contains a section dedicated to information
-  about particular Haskell libraries.
+- Cộng đồng Haskell duy trì một kho mã lệnh trung tâm để chứa các 
+  thư viện và ứng dụng nguồn mở Haskell. Nó được gọi là 
+  [[http://hackage.haskell.org/][Hackage]], và cho phép bajnn tìm kiếm
+  phần mềm để tải về, hoặc duyệt các tập hợp phần mềm theo thể loại.
+- Trang [[http://haskell.org/haskellwiki/Applications_and_libraries][Haskell Wiki]]
+  có một phần dành riêng cho thông tin về các thư viện Haskell cụ thể.
 
 *** Cộng đồng Haskell
 
