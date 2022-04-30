@@ -431,51 +431,52 @@ dân dã của cộng đồng Haskell là "bằng bất kì giá nào phải tr�
 Rất ít người ngoài biết đến ngôn ngữ này. Lập trình hàm thực sự
 là một lĩnh vực khá mơ hồ.
 
-During this time, the mainstream programming world experimented
-with relatively small tweaks: from programming in C, to C++, to
-Java. Meanwhile, on the fringes, programmers were beginning to
-tinker with new, more dynamic languages. Guido van Rossum designed
-Python; Larry Wall created Perl; and Yukihiro Matsumoto developed
+Trong thời kì này, thế giới lập trình chủ đạo đã thử nghiệm khá ít
+thay đổi nhỏ: từ lập trình bằng C, sang C++, sang
+Java. Cùng lúc, ở bên lề, các lập trình viên bắt đầu nghịch ngợm
+các ngôn ngữ mới, có tính chất động hơn. Guido van Rossum thiết kế
+Python; Larry Wall tạo ra Perl; và Yukihiro Matsumoto phát triển
 Ruby.
 
-As these newer languages began to seep into wider use, they spread
-some crucial ideas. The first was that programmers are not merely
-capable of working in expressive languages; in fact, they
-flourish. The second was in part a byproduct of the rapid growth
-in raw computing power of that era: it's often smart to sacrifice
-some execution performance in exchange for a big increase in
-programmer productivity. Finally, several of these languages
-borrowed from functional programming.
+Khi những ngôn ngữ mới này bắt đầu được dùng rộng rãi hơn,
+chúng lan tỏa những ý tưởng chủ chốt. Thứ nhất, lập trình viên 
+không chỉ có khả năng làm việc với những ngôn ngữ biểu đạt tốt;
+thực tế là họ đang "phất" lên. Thứ hai, một phần từ hệ quả của 
+sự tăng trưởng công năng của máy tính thời bấy giờ: cách thông minh
+thường là hi sinh chút hiệu năng tính toán để đổi lấy sự tăng vọt
+về hiệu suất lập trình. Cuối cùng, vài trong số các ngôn ngữ trên
+đã mượn các đặc điểm từ lập trình hàm.
 
-Over the past half a decade, Haskell has successfully escaped from
-academia, buoyed in part by the visibility of Python, Ruby, and
-even Javascript. The language now has a vibrant and fast-growing
-culture of open source and commercial users, and researchers
-continue to use it to push the boundaries of performance and
-expressiveness.
+Trong nửa thập kỉ vừa qua, Haskell đã thoát được ra khỏi môi trường
+học thuật, và nổi lên một phần nhờ sự hiện diện của Python, Ruby, và
+thậm chí là Javascript. Bây giờ, ngôn ngữ này đang có một văn hóa rực
+rỡ, phát triển nhanh trong cộng đồng nguồn mở và khách hàng thương mại,
+còn giới nghiên cứu vẫn tiếp tục dùng nó để khai phá về hiệu năng 
+cũng như tính biểu đạt trong lập trình.
 
 ** Những tài liệu hữu ích
 
-As you work with Haskell, you're sure to have questions and want
-more information about things. Here are some Internet resources
-where you can look up information and interact with other Haskell
-programmers.
+Khi làm việc với Haskell, chắc chắn bạn sẽ đặt ra câu hỏi và muốn 
+thêm thông tin. Sau đây là một số nguồn Internet để giúp bạn
+tra tìm thông tin và tương tác với các lập trình viên Haskell 
+khác.
 
 *** Tài liệu tham khảo
 
-- [[http://www.haskell.org/ghc/docs/latest/html/libraries/index.html][The Haskell Hierarchical Libraries reference]] provides the
-  documentation for the standard library that comes with your
-  compiler. This is one of the most valuable online assets for
-  Haskell programmers.
-- For questions about language syntax and features, the
-  [[http://haskell.org/onlinereport/haskell2010/][Haskell 2010 Report]] describes the Haskell 2010 language
-  standard.
-- Various extensions to the language have become commonplace since
-  the Haskell 2010 Report was released. The [[http://www.haskell.org/ghc/docs/latest/html/users_guide/index.html][GHC Users's Guide]]
-  contains detailed documentation on the extensions supported by
-  GHC, as well as some GHC-specific features.
-- [[http://haskell.org/hoogle/][Hoogle]] and [[http://holumbus.fh-wedel.de/hayoo/hayoo.html][Hayoo]] are Haskell API search engines. They can search
-  for functions by name or by type.
+- [[http://www.haskell.org/ghc/docs/latest/html/libraries/index.html][Thư viện phân cấp Haskell]] cung cấp 
+  tài liệu cho thư viện tiêu chuẩn đi kèm với trình biên dịch.
+  Đây là một trong những tài liệu trực tuyến quý giá nhất cho 
+  các lập trình viên Haskell.
+- Nếu bạn hỏi về cú pháp và các tính năng của ngôn ngữ, bản
+  [[http://haskell.org/onlinereport/haskell2010/][Báo cáo Haskell 2010]]
+  có mô tả tiêu chuẩn ngôn ngữ Haskell 2010.
+- Nhiều phần mở rộng của ngôn ngữ đã trở nên thông dụng
+  từ khi bản Báo cáo Haskell 2010 được phát hành. 
+  Cuốn [[http://www.haskell.org/ghc/docs/latest/html/users_guide/index.html][Hướng dẫn người dùng GHC]]
+  có chứa tài liệu cụ thể về những phần mở rộng được
+  GHC hỗ trợ, cũng như một số tính năng chỉ có ở GHC.
+- [[http://haskell.org/hoogle/][Hoogle]] và [[http://holumbus.fh-wedel.de/hayoo/hayoo.html][Hayoo]] là 
+  các máy tìm kiếm Haskell API. Chúng có thể tìm các hàm theo tên hoặc theo kiểu.
 
 *** Các ứng dụng và thư viện
 
@@ -484,119 +485,120 @@ hay một ứng dụng viết bằng Haskell, thì hãy rà soát những nguồ
 
 - Cộng đồng Haskell duy trì một kho mã lệnh trung tâm để chứa các 
   thư viện và ứng dụng nguồn mở Haskell. Nó được gọi là 
-  [[http://hackage.haskell.org/][Hackage]], và cho phép bajnn tìm kiếm
+  [[http://hackage.haskell.org/][Hackage]], và cho phép bạn tìm kiếm
   phần mềm để tải về, hoặc duyệt các tập hợp phần mềm theo thể loại.
 - Trang [[http://haskell.org/haskellwiki/Applications_and_libraries][Haskell Wiki]]
   có một phần dành riêng cho thông tin về các thư viện Haskell cụ thể.
 
 *** Cộng đồng Haskell
 
-There are a number of ways you can get in touch with other Haskell
-programmers, to ask questions, learn what other people are talking
-about, and simply do some social networking with your peers.
+Có nhiều cách để liên hệ với các lập trình viên Haskell khác,
+để đặt câu hỏi, tìm hiểu những vấn đề đang được thảo luận, 
+và đơn giản chỉ là tạo kết nối với các đồng nghiệp.
 
-- The first stop on your search for community resources should be
-  the [[http://www.haskell.org/][Haskell web site]]. This page contains the most current links
-  to various communities and information, as well as a huge and
-  actively maintained wiki.
-- Haskellers use a number of [[http://haskell.org/haskellwiki/Mailing_lists][mailing lists]] for topical
-  discussions. Of these, the most generally interesting is named
-  haskell-cafe. It has a relaxed, friendly atmosphere, where
-  professionals and academics rub shoulders with casual hackers
-  and beginners.
-- For real-time chat, the [[http://haskell.org/haskellwiki/IRC_channel][Haskell IRC channel]], named #haskell, is
-  large and lively. Like haskell-cafe the atmosphere stays
-  friendly and helpful in spite of the huge number of concurrent
-  users.
-- There are many local user groups, meetups, academic workshops,
-  and the like; here is
-  [[http://haskell.org/haskellwiki/User_groups][a list of the known user groups and workshops]].
-- The [[https://wiki.haskell.org/Haskell_Communities_and_Activities_Report][Haskell Communities and Activities Report]] collects
-  information about people that use Haskell, and what they are
-  doing with it. It has been running for years, so it provides a
-  good way to peer into Haskell's past.
-
+- Điểm dừng đầu tiên của bạn trong chặng đường tìm kiếm tài liệu của cộng đồng là
+  [[http://www.haskell.org/][website của Haskell]]. Trang web này chứa những đường link
+  tới nhiều cộng đồng và nguồn thông tin , cũng như một wiki khổng lồ và được tích cực duy trì.
+- Các hội viên Haskell dùng đến nhiều [[http://haskell.org/haskellwiki/Mailing_lists][danh sách mailing]]
+  để thảo luận các chủ đề. Trong số đó, danh sách hay nhất có tên là
+  haskell-cafe. Ở đó là bầu không khí thoải mái, thân thiện, và
+  các giáo sư và chuyên gia gặp gỡ trò chuyện với người mới đến
+  và các hacker nghiệp dư.
+- Nếu muốn chat trực tiếp, [[http://haskell.org/haskellwiki/IRC_channel][Kênh IRC Haskell]], tên là #haskell,
+  có quy mo lớn và sôi động. Cũng như haskell-cafe, bầu không khí luôn 
+  thân thiện và chào đón mặc dù có rất đông người cùng lúc tham gia. 
+- Có nhiều nhóm người dùng, cuộc gặp gỡ, lớp học thuật v.v. 
+  tổ chức ở địa phương; và đây là
+  [[http://haskell.org/haskellwiki/User_groups][danh sách của nhứng nhóm người dùng và lớp được tổ chức]].
+- Bản [[https://wiki.haskell.org/Haskell_Communities_and_Activities_Report][Báo cáo về hoạt động và cộng đồng Haskell]]
+  tổng hợp thông tin về những người dùng Haskell, cùng mục đích sử dụng. Báo cáo này
+  được biên tập qua nhiều năm, do đó sẽ giúp ta nhìn về quá khứ của Haskell.
+  
 ** Lời cảm tạ
 
-This book would not exist without the Haskell community: an
-anarchic, hopeful cabal of artists, theoreticians and engineers,
-who for twenty years have worked to create a better, bug-free
-programming world. The people of the Haskell community are unique
-in their combination of friendliness and intellectual depth.
+Cuốn sách này sẽ không định hình nếu thiếu cộng đồng Haskell:
+một nhóm các nghệ sĩ, giáo sư và kĩ sư đầy hoài bão vượt ngoài khuôn khổ, 
+những người đã qua 20 năm làm việc để tạo ra một thế giới lập trình 
+tốt hơn, tránh được các lỗi. Cộng đồng Haskell thật độc đáo
+về sự kết hợp giữa thái độ thân thiện và chiều sâu trí tuệ.
 
-We wish to thank our editor, Mike Loukides, and the production
-team at O'Reilly for all of their advice and assistance.
+Chúng tôi muốn cảm ơn biên tập viên, Mike Loukides, cùng với 
+nhóm xuất bản tại O'Reilly vì những lời khuyên và sự giúp đỡ từ họ.
 
 *** Bryan
 
-I had a great deal of fun working with John and Don. Their
-independence, good nature, and formidable talent made the writing
-process remarkably smooth.
+Tôi rất vui khi làm việc với John và Don. Tính độc lập, 
+thiện tâm, và tài năng đáng ngưỡng mộ của họ đã giúp cho 
+quá trình viết lách được thuận buồm xuôi gió.
 
-Simon Peyton Jones took a chance on a college student who emailed
-him out of the blue in early 1994. Interning for him over that
-summer remains a highlight of my professional life. With his
-generosity, boundless energy, and drive to collaborate, he
-inspires the whole Haskell community.
+Simon Peyton Jones đã cho một sinh viên đại học cơ hội 
+sau khi đột nhiên nhận email từ cậu này vào đầu năm 1994. 
+Việc được thực tập cùng ông suốt mùa hè năm đó vẫn là một
+điểm sáng trong sự nghiệp của tôi. Với tấm lòng rộng lượng,
+nhiệt huyết bất tận và luôn khuyến khích hợp tác, ông đã 
+thắp lửa cho cả cộng đồng Haskell.
 
-My children, Cian and Ruairi, always stood ready to help me to
-unwind with wonderful, madcap little-boy games.
+Các con tôi, Cian và Ruairi, luôn sẵn sàng giúp tôi giải trí
+với những trò chơi kì quặc, ngộ nghĩnh tuyệt vời.
 
-Finally, of course, I owe a great debt to my wife, Shannon, for
-her love, wisdom, and support during the long gestation of this
-book.
+Sau cùng, dĩ nhiên tôi biết ơn người vợ, Shannon, đã
+dành tình yêu, trí tuệ và trợ giúp suốt quá trình thai nghén
+cuốn sách này.
 
 *** John
 
-I am so glad to be able to work with Bryan and Don on this
-project. The depth of their Haskell knowledge and experience is
-amazing. I enjoyed finally being able to have the three of us sit
-down in the same room -- over a year after we started writing.
+Tôi rất vui được dịp làm việc với Bryan và Don trong
+dự án này. Chiều sâu hiểu biết cũng như kinh nghiệm về Haskell
+của họ thật kinh ngạc. Tôi thích việc cuối cùng ba người chúng
+tôi cùng ngồi xuống giải quyết tranh luận -- hơn một năm sau
+khi bắt đầu viết.
 
-My 2-year-old Jacob, who decided that it would be fun to use a
-keyboard too, and is always eager to have me take a break from the
-computer and help him make some fun typing noises on a 50-year-old
-Underwood typewriter.
+Bé Jacob nhà tôi lên hai, cháu quả quyết rằng con cũng thích 
+gõ bàn phím, và luôn hòa hứng gọi bố ra nghỉ làm việc máy tính
+để giúp con gõ phím lách cách trên một máy đánh chữ cũ
+50 năm tuổi.
 
-Most importantly, I wouldn't have ever been involved in this
-project without the love, support, and encouragement from my wife,
+Và quan trọng nhất, tôi không thể chuyên tâm vào dự án này
+nếu thiếu tình thương, sự trợ giúp cùng khích lệ từ vợ tôi,
 Terah.
 
 *** Don
 
-Before all else, I'd like to thank my amazing co-conspirators,
-John and Bryan, for encouragment, advice and motivation.
+Trên hết thảy, tôi muốn cám ơn các chiến hữu tuyệt vời, 
+John and Bryan, đã động viên, khích lệ và góp ý.
 
-My colleagues at Galois, Inc., who daily wield Haskell in the real
-world, provided regular feedback and war stories, and helped
-ensured a steady supply of espresso.
+Các đồng nghiệp của tôi tại Galois, Inc., những người thường xuyên 
+dùng Haskell vào việc thực, đã phản hồi và tranh luận sôi nổi,
+và liên tục trao tay tôi những tách cà phê espresso nóng.
 
-My PhD supervisor, Manuel Chakravarty, and the PLS research group,
-who provided encouragement, vision and energy, and showed me that
-a rigorous, foundational approach to programming can make the
-impossible happen.
+Thầy hướng dẫn nghiên cứu sinh cho tôi, Manuel Chakravarty, cùng
+nhóm nghiên cứu PLS, đã động viên, chỉ hướng và cho tôi thấy rằng
+một cách tiếp cận nền tảng, chặt chẽ cho lập trình có thể khiến 
+điều bất khả thi xảy ra.
 
-And, finally, thanks to Suzie, for her insight, patience and love.
+Và sau cùng, cám ơn Suzie đã thấu hiểu, khoan dung và yêu thương.
 
 *** Cảm ơn những người phản biện
 
-We developed this book in the open, posting drafts of chapters to
-our web site as we completed them. Readers then submitted feedback
-using a web application that we developed. By the time we finished
-writing the book, about 800 people had submitted over 7,500
-comments, an astounding figure.
+Chúng tôi phát triển nội dung sách này bằng cách đăng công khai 
+lên website những bản nháp các chương khi vừa viết xong. Sau đó, 
+bạn đọc gửi về ý kiến phản hồi bằng một ứng dụng web do 
+chúng tôi phát triển. Cho đến lúc chúng tôi hoàn thành cuốn sách 
+này, đã có khoảng 800 người đóng góp trên 7.500 ý kiến,
+một con số kinh ngạc.
 
-We deeply appreciate the time that so many people volunteered to
-help us to improve our book. Their encouragement and enthusiasm
-over the 15 months we spent writing made the process a pleasure.
+Chúng tôi chân thành ghi nhận một tập thể lớn đã dành nhiều thời gian 
+tự nguyện giúp chúng tôi hiệu đính cuốn sách này. Sự động viên và
+nhiệt tình từ phía họ trong 15 tháng qua giúp cho quá trình 
+viết sách của chúng tôi rất thú vị.
 
-The breadth and depth of the comments we received have profoundly
-improved the quality of this book. Nevertheless, all errors and
-omissions are, of course, ours.
+Bề rộng và chiều sâu của những góp ý mà chúng tôi nhận được đã 
+cải thiện sâu sắc chất lượng cuốn sách này. Dù vậy, dĩ nhiên vẫn 
+còn những thiếu sót mà chúng tôi chưa sửa được.
 
-The following people each contributed over 1% of the total number
-of review comments that we received. We would like to thank them
-for their care in providing us with so much detailed feedback.
+Những bạn sau mỗi người đã đóng góp trên 1% tổng số ý kiến đóng góp
+mà chúng tôi đã nhận được. Chúng tôi muốn cám ơn học về 
+sự quan tâm đã gửi đến bao nhiêu phản hồi chi tiết như vậy.
 
 Alex Stangl, Andrew Bromage, Brent Yorgey, Bruce Turner, Calvin
 Smith, David Teller, Henry Lenzi, Jay Scott, John Dorsey, Justin
@@ -604,8 +606,8 @@ Dressel, Lauri Pesonen, Lennart Augustsson, Luc Duponcheel, Matt
 Hellige, Michael T. Richter, Peter McLain, Rob deFriesse, Rüdiger
 Hanke, Tim Chevalier, Tim Stewart, William N. Halchin.
 
-We are also grateful to the people below, each of whom contributed
-at least 0.2% of all comments.
+Chúng tôi cũng biết ơn những bạn sau, mỗi người đã đóng góp ít nhất 
+là 0,2% của tổng số tất cả các lời nhận xét.
 
 Achim Schneider, Adam Jones, Alexander Semenov, Andrew Wagner,
 Arnar Birgisson, Arthur van Leeuwen, Bartek Ćwikłowski, Bas Kok,
@@ -627,8 +629,8 @@ Sebastien Bocq, Sengan Baring-Gould, Serge Le Huitouze, Shahbaz
 Chaudhary, Shawn M Moore, Tom Tschetter, Valery V. Vorotyntsev,
 Will Newton, Wolfgang Meyer, Wouter Swierstra.
 
-We would like to acknowledge the following people, many of whom
-submitted a number of comments.
+Chúng tôi muốn cảm ơn các bạn sau, nhiều bạn trong số đó 
+đã gửi một số nhận xét đóng góp.
 
 Aaron Hall, Abhishek Dasgupta, Adam Copp, Adam Langley, Adam
 Warrington, Adam Winiecki, Aditya Mahajan, Adolfo Builes, Al
