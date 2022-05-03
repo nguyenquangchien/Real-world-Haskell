@@ -1,48 +1,48 @@
-* Chapter 1: Getting Started
+* Chapter 1: Khởi đầu
 
-As you read the early chapters of this book, keep in mind that we
-will sometimes introduce ideas in restricted, simplified form.
-Haskell is a deep language, and presenting every aspect of a given
-subject all at once is likely to prove overwhelming. As we build a
-solid foundation in Haskell, we will expand upon these initial
-explanations.
+Khi bạn đọc các chương dầu cuốn sách này, hãy luôn nhớ rằng đôi khi
+chúng tôi giới thiệu những ý tưởng dưới dạng rất đơn giản và hạn chế.
+Haskell là một ngôn ngữ rất sâu sắc, và việc trình bày mọi khía cạnh
+của chủ đề cùng một lúc có lẽ là quá sức. Khi đã thiết lập được một
+nền tảng vững chắc trong Haskell, chúng tôi sẽ mở rộng thêm dựa trên
+những lý giải ban đầu này.
 
-** Your Haskell environment
+** Môi trường Haskell bạn dùng
 
-The Glasgow Haskell Compiler (GHC) is the most widely used. It
-compiles to native code, supports parallel execution, and provides
-useful performance analysis and debugging tools.
+Trình biên dịch The Glasgow Haskell Compiler (GHC) là cái được dùng
+nhiều nhất. Nó biên dịch thành ngôn ngữ máy, hỗ trợ thực thi song song,
+và cung cấp những công cụ gỡ lỗi và phân tích hiệu năng rất hữu ích.
 
-GHC has three main components.
+GHC có ba thành phần chính.
 
-- ~ghc~ is an optimizing compiler that generates fast native code.
-- ~ghci~ is an interactive interpreter and debugger.
-- ~runghc~ is a program for running Haskell programs as scripts,
-  without needing to compile them first.
+- ~ghc~ là một trình biên dịch tối ưu đẻ phát sinh mã ngôn ngữ máy chạy nahnh.
+- ~ghci~ là một trình gỡ lỗi và thông dịch tương tác.
+- ~runghc~ là một chương trình để chạy các chương trình Haskell khác như thể chúng là các văn lệnh (script),
+  mà không cần phải biên dịch chúng trước.
 
 #+BEGIN_NOTE
-How we refer to the components of GHC
+Cách đề cập tới các thành phần của GHC
 
-When we discuss the GHC system as a whole, we will refer to it as
-GHC. If we are talking about a specific command, we will mention
-~ghc~, ~ghci~, or ~runghc~ by name.
+Khi chúng thảo luận về toàn hệ thống GHC, chúng tôi sẽ gọi nó là
+GHC. Nếu nói về từng lệnh cụ thể, chúng tôi sẽ gọi tên 
+~ghc~, ~ghci~, hay ~runghc~.
 #+END_NOTE
 
-In this book, we assume that you're using at least version 8.2.2
-of GHC, which was released in 2017. To obtain a copy of GHC visit
-[[http://www.haskell.org/downloads][the GHC download page]], and look for the list of binary packages
-and installers.
+Trong sách này, chúng tôi coi như bạn đang dùng phiên bản GHC 8.2.2
+hoặc mới hơn; phiên bản này phát hành năm 2017. Để nhận được một bản sao của GHC,
+hãy đến [[http://www.haskell.org/downloads][trang tải về GHC]], và tìm trong danh sách
+các gói nhị phân và trình cài đặt.
 
-Many Linux distributors, and providers of BSD and other Unix
-variants, make custom binary packages of GHC available. Because
-these are built specifically for each environment, they are much
-easier to install and use than the generic binary packages that
-are available from the GHC download page. You can find a list of
-distributions that custom-build GHC at the GHC
-[[http://www.haskell.org/ghc/distribution_packages.html][distribution packages]] page.
+Nhiều bản phân phối Linux, và các nhà cung cấp của BSD cũng như các
+biến thể Unix khác, đã phát hành các gói nhị phân GHC theo yêu cầu. Vì 
+được dựng riêng cho từng môi trường nên chúng dễ cài đặt và sử dụng 
+hơn hẳn các gói nhị phân chung sẵn có ở trang  tải về GHC. 
+Bạn có thể tìm thấy một danh sách các bản phân phối 
+đã có GHC dựng theo yêu cầu tại trang web GHC
+[[http://www.haskell.org/ghc/distribution_packages.html][distribution packages]].
 
-For more detailed information about how to install GHC on a
-variety of popular platforms, we've provided some instructions in
+Để cung cấp thêm thông tin về cách cài đặt GHC trên một loạt 
+những nền tảng thông dụng, chúng tôi đã soạn một số hướng dẫn ở
 [[file:installing-ghc-and-haskell-libraries.html][Appendix A, /Installing GHC and Haskell libraries/]].
 
 ** Getting started with ghci, the interpreter
