@@ -38,39 +38,39 @@ biến thể Unix khác, đã phát hành các gói nhị phân GHC theo yêu c�
 được dựng riêng cho từng môi trường nên chúng dễ cài đặt và sử dụng 
 hơn hẳn các gói nhị phân chung sẵn có ở trang  tải về GHC. 
 Bạn có thể tìm thấy một danh sách các bản phân phối 
-đã có GHC dựng theo yêu cầu tại trang web GHC
-[[http://www.haskell.org/ghc/distribution_packages.html][distribution packages]].
+đã có GHC dựng theo yêu cầu tại trang web
+[[http://www.haskell.org/ghc/distribution_packages.html][các gói phân phối]] GHC.
 
 Để cung cấp thêm thông tin về cách cài đặt GHC trên một loạt 
 những nền tảng thông dụng, chúng tôi đã soạn một số hướng dẫn ở
-[[file:installing-ghc-and-haskell-libraries.html][Appendix A, /Installing GHC and Haskell libraries/]].
+[[file:installing-ghc-and-haskell-libraries.html][Phụ lục A, /Cài đặt GHC và các thư viện Haskell/]].
 
-** Getting started with ghci, the interpreter
+** Bắt đầu với trình thông dịch ghci
 
-The interactive interpreter for GHC is a program named ~ghci~. It
-lets us enter and evaluate Haskell expressions, explore modules,
-and debug our code. If you are familiar with Python or Ruby,
-~ghci~ is somewhat similar to ~python~ and ~irb~, the interactive
-Python and Ruby interpreters.
+Trình thông dịch tương tác cho GHC là một chương trình có tên ~ghci~. 
+Nó cho phép ta nhập vào và ước lượng các biểu thức Haskell, khám phá các module
+và gỡ lỗi mã lệnh bạn viết ra. Nếu bạn đã quen với Python hay Ruby,
+~ghci~ có phần giống với ~python~ và ~irb~, các trình thông dịch tương tác
+của Python và Ruby.
 
 #+BEGIN_NOTE
-The ~ghci~ command has a narrow focus
+Lệnh ~ghci~ có một mục tiêu hẹp 
 
-We typically cannot copy some code out of a Haskell source file
-and paste it into ~ghci~. This does not have a significant effect
-on debugging pieces of code, but it can initially be surprising if
-you are used to, say, the interactive Python interpreter.
+Thông thường, ta không thể sao chép một đoạn mã từ file nguồn Haskell 
+và dán thẳng vào ~ghci~. Điều này không có ý nghĩa đáng kể đối với 
+việc gỡ lỗi các đoạn mã lệnh, nhưng ban đầu nó có thể gây ngạc nhiên
+nếu bạn đã từng quen với, chẳng hạn trình thông dịch Python.
 #+END_NOTE
 
-On Unix-like systems, we run ~ghci~ as a command in a shell
-window. On Windows, it's available via the Start Menu. For
-example, if you installed using the GHC installer on Windows,
-you should go to "Programs", then "GHC"; you will then see
-~ghci~ in the list. (See [[file:installing-ghc-and-haskell-libraries.org::*Windows][the section called "Windows"]]
-screenshot.)
+Trên các hệ thống tựa Unix, ta chạy ~ghci~ như một câu lệnh trong 
+cửa sổ dòng lệnh. Trên Windows, có thể truy cập qua Start Menu. 
+Chẳng hạn, nếu bạn đã cài đặt bằng bộ cài GHC installer cho Windows,
+bạn cần vào "Programs", rồi "GHC"; sau đó bạn sẽ thấy 
+~ghci~ trong danh sách. (Xem chụp màn hình 
+[[file:installing-ghc-and-haskell-libraries.org::*Windows][mục "Windows"]].)
 
-When we run ~ghci~, it displays a startup banner, followed by a
-~Prelude>~ prompt. Here, we're showing version 8.2.2.
+Khi ta chạy ~ghci~, nó hiện ra một hình báo khởi động, tiếp theo là
+một dấu nhắc ~Prelude>~. Ở đây, chúng tôi cho thấy phiên bản 8.2.2.
 
 #+BEGIN_SRC screen
 $ ghci
@@ -78,34 +78,34 @@ GHCi, version 8.2.2: http://www.haskell.org/ghc/  :? for help
 Prelude>
 #+END_SRC
 
-The word ~Prelude~ in the prompt indicates that ~Prelude~, a
-standard library of useful functions, is loaded and ready to use.
-When we load other modules or source files, they will show up in
-the prompt, too.
+Từ ~Prelude~ ở dấu nhắc lệnh cho thấy rằng ~Prelude~, một
+thư viện chuẩn giữ các hàm hữu ích, đã được nạp và sẵn sàng sử dụng.
+Khi ta nạp các module hoặc file nguồn khác, chúng cũng sẽ hiện lên
+trên dấu nhắc lệnh.
 
 #+BEGIN_TIP
-Getting help
+Nhận trợ giúp
 
-If you enter ~:?~ at the ~ghci~ prompt, it will print a long help
-message.
+Nếu bạn gõ vào ~:?~ từ dấu nhắc ~ghci~, nó sẽ in ra một thông điệp
+trợ giúp khá dài.
 #+END_TIP
 
-The ~Prelude~ module is sometimes referred to as "the standard
-prelude", because its contents are defined by the Haskell 2010
-standard. Usually, it's simply shortened to "the prelude".
+Module ~Prelude~ đôi khi được gọi là "đoạn mở đầu chuẩn",
+vì nội dung của nó được định nghĩa trong chuẩn Haskell 2010. 
+Người ta thường gọi tắt nó là "đoạn mở đầu".
 
 #+BEGIN_NOTE
-About the ghci prompt
+Về dấu nhắc ghci
 
-The prompt displayed by ~ghci~ changes frequently depending on
-what modules we have loaded. It can often grow long enough to
-leave little visual room on a single line for our input.
+Dấu nhắc hiển thị bởi ~ghci~ thường xuyên thay đổi tùy thuộc vào 
+những module nào ta đã nạp xong. Nó có thể kéo dài đến nỗi 
+chỗ ta nhập dòng lệnh chỉ còn lại ngắn ngủn.
 
-For brevity and consistency, we have replaced ~ghci~'s default
-prompts throughout this book with the prompt string ~ghci>~.
+Để cho gọn và thống nhất, trong sách này chúng tôi đã thay các dấu nhắc mặc định
+của ~ghci~ với chuỗi dấu nhắc ~ghci>~.
 
-If you want to do this yourself, use ~ghci~'s ~:set prompt~
-directive, as follows.
+Nếu bạn muốn tự làm điều này, hãy dùng dẫn hướng ~:set prompt~ của ~ghci~ 
+như sau.
 
 #+BEGIN_SRC screen
 Prelude> :set prompt "ghci> "
@@ -113,17 +113,17 @@ ghci>
 #+END_SRC
 #+END_NOTE
 
-The prelude is always implicitly available; we don't need to take
-any actions to use the types, values, or functions it defines. To
-use definitions from other modules, we must load them into ~ghci~,
-using the ~:module~ command.
+Đoạn mở đầu này luôn ngầm sẵn có; ta không cần phải làm gì thêm 
+để dùng các kiểu dữ liệu, giá trị, hay hàm mà nó định nghĩa. Để
+dùng các định nghĩa từ những module khác, ta phải nạp chúng vào ~ghci~
+bằng lệnh ~:module~.
 
 #+BEGIN_SRC screen
 ghci> :module + Data.Ratio
 #+END_SRC
 
-We can now use the functionality of the ~Data.Ratio~ module,
-which lets us work with rational numbers (fractions).
+Bây giờ ta có thể dùng tính năng của module ~Data.Ratio~ module,
+module này cho ta làm việc với các số hữu tỉ (phân số).
 
 ** Basic interaction: using ghci as a calculator
 
