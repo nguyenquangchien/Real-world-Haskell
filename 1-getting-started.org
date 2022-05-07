@@ -238,31 +238,31 @@ ghci> 2*-3
         ‘*>’ (imported from Prelude)
 #+END_SRC
 
-Here, the Haskell implementation is reading ~*-~ as a single
-operator. Haskell lets us define new operators (a subject that we
-will return to later), but we haven't defined ~*-~. Once again, a
-few parentheses get us and ~ghci~ looking at the expression in the
-same way.
+Ở đây, Haskell lại hiểu ~*-~ như một toán tử đơn lẻ.
+Haskell cho phép ta định nghĩa toán tử mới (một chủ đề mà 
+ta sẽ trở lại sau), nhưng ta chưa định nghĩa ~*-~. Một lần nữa,
+ta lại rắc rối với ngoặc tròn và ~ghci~ lại nhìn nhận biểu thức
+theo cách này.
 
 #+BEGIN_SRC screen
 ghci> 2*(-3)
 -6
 #+END_SRC
 
-Compared to other languages, this unusual treatment of negative
-numbers might seem annoying, but it represents a reasoned
-trade-off. Haskell lets us define new operators at any time. This
-is not some kind of esoteric language feature; we will see quite a
-few user-defined operators in the chapters ahead. The language
-designers chose to accept a slightly cumbersome syntax for
-negative numbers in exchange for this expressive power.
+So với những ngôn ngữ khác, cách xử lý số âm một cách bất thường thế này
+có vẻ thật khó chịu, nhưng nó cho thấy một sự đánh đổi có lý.
+Haskell cho phép ta định nghĩa các toán tử mới mọi lúc. 
+Đây không phải đặc điểm ngôn ngữ bí truyền gì; trong những chương tới đây
+ta sẽ thấy một vài toán tử do người dùng tự định nghĩa. Nhóm thiết kế
+ngôn ngữ chọn chấp nhận một cú pháp hơi dài dòng để viết số nguyên
+nhưng đổi lại được năng lực biểu đạt cao.
 
-*** Boolean logic, operators, and value comparisons
+*** Logic, toán tử, và so sánh các giá trị Boole
 
-The values of Boolean logic in Haskell are ~True~ and ~False~. The
-capitalization of these names is important. The language uses
-C-influenced operators for working with Boolean values: ~(&&)~ is
-logical "and", and ~(||)~ is logical "or".
+Các giá trị logic Boole trong Haskell là ~True~ và ~False~. 
+Điều quan trọng là phải viết in các chữ cái đầu. Haskell sử dụng
+các toán tử ảnh hưởng từ C để làm việc với các giá trị Boole: ~(&&)~ là
+phép "và" logic, còn ~(||)~ là phép "hoặc" logic.
 
 #+BEGIN_SRC screen
 ghci> True && False
@@ -271,9 +271,9 @@ ghci> False || True
 True
 #+END_SRC
 
-While some programming languages treat the number zero as
-synonymous with ~False~, Haskell does not, nor does it consider a
-non-zero value to be ~True~.
+Có những ngôn ngữ lập trình coi số không đồng nghĩa với 
+~False~, nhưng Haskell thì không, và cũng không coi
+giá trị khác không là ~True~.
 
 #+BEGIN_SRC screen
 ghci> True && 1
@@ -285,43 +285,43 @@ ghci> True && 1
       In an equation for ‘it’: it = True && 1
 #+END_SRC
 
-Once again, we are faced with a substantial-looking error message.
-In brief, it tells us that the boolean type, ~Bool~, is not a
-member of the family of numeric types, ~Num~. The error message is
-rather long because ~ghci~ is pointing out the location of the
-problem, and hinting at a possible change we could make that might
-fix the problem.
+Một lần nữa, ta lại đối mặt với một thông báo lỗi coi vẻ nghiêm trọng.
+Nói gọn lại, thông báo này cho ta biết rằng kiểu boole, ~Bool~, 
+không thuộc về nhóm kiểu dữ liệu số, ~Num~. Thông báo lỗi này 
+khá dài vì ~ghci~ đã chỉ ra vị trí của trực trặc,
+và gợi ý ta thực hiện những thay đổi khả dĩ để có thể sửa chữa
+vấn đề này.
 
-Here is a more detailed breakdown of the error message.
+Sau đây ta hãy mổ xẻ chi tiết thông báo lỗi nêu trên.
 
-- "~No instance for (Num Bool)~" tells us that ~ghci~ is trying to
-  treat the numeric value 1 as having a Bool type, but it cannot.
-- "~arising from the literal `1'~" indicates that it was our use
-  of the number ~1~ that caused the problem.
-- "~In the definition of `it'~" refers to a ~ghci~ short cut that
-  we will revisit in a few pages.
+- "~No instance for (Num Bool)~" cho ta biết rằng ~ghci~ cố gắng
+  coi trị số 1 là thuộc kiểu Bool, nhưng nó không thể.
+- "~arising from the literal `1'~" cho thấy rằng chính việc ta sử dụng
+  số ~1~ đã gây ra trục trặc này.
+- "~In the definition of `it'~" đề cập tới một lối tắt của ~ghci~ mà
+  ta sẽ lần theo sau mấy trang sách tới.
 
 #+BEGIN_TIP
-Remain fearless in the face of error messages
+Đừng sợ khi đối mặt với các thông báo lỗi
 
-We have an important point to make here, which we will repeat
-throughout the early sections of this book. If you run into
-problems or error messages that you do not yet understand, /don't
-panic/. Early on, all you have to do is figure out enough to make
-progress on a problem. As you acquire experience, you will find it
-easier to understand parts of error messages that initially seem
-obscure.
+Đến đây chúng tôi cần chỉ ra một điểm quan trọng, và sẽ còn lặp lại
+xuyên suốt những phần đầu cuốn sách này. Nếu bạn vướng phải trục trặc
+hoặc lời thông báo lỗi mà bạn chưa hiểu, /đừng hoảng sợ/. 
+Ở giai đoạn đầu này, những gì bạn cần làm là hình dung được 
+để khắc phục sự cố này. Khi đã dần tích lũy kinh nghiệm, bạn sẽ thấy
+dễ hiểu hơn những phần của lời thông báo mà thoạt đầu còn có vẻ
+bí hiểm.
 
-The numerous error messages have a purpose: they actually help us
-in writing correct code, by making us perform some amount of
-debugging "up front", before we ever run a program. If you are
-coming from a background of working with more permissive
-languages, this way of working may come as something of a shock.
-Bear with us.
+Mục đích phía sau việc đưa ra bộn bề thông báo lỗi thực chất là 
+để giúp ta viết mã lệnh đúng, bằng cách thực hiện gỡ lỗi
+"tiền trạm", trước khi ta chạy chương trình. Nếu bạn đã có
+kinh nghiệm làm việc với những ngôn ngữ có mức tùy tiện (permissive)
+cao hơn, thì cách hoạt động mới này có thể gây sốc.
+Hãy kiên nhẫn nhé.
 #+END_TIP
 
-Most of Haskell's comparison operators are similar to those used
-in C and the many languages it has influenced.
+Đa số các toán tử so sánh trong Haskell đều giống nhữ cái được dùng 
+trong C và nhiều ngôn ngữ ảnh hưởng từ C.
 
 #+BEGIN_SRC screen
 ghci> 1 == 1
@@ -332,17 +332,17 @@ ghci> 4 >= 3.99
 True
 #+END_SRC
 
-One operator that differs from its C counterpart is "is not equal
-to". In C, this is written as ~!=~. In Haskell, we write ~(/=)~,
-which resembles the ≠ notation used in mathematics.
+Có một toán tử khác với cái trong C: toán tử "không bằng". 
+Trong C, toán tử này viết là ~!=~. Còn ở Haskell, ta viết ~(/=)~,
+thế này khá giống với kí hiệu ≠ trong toán học.
 
 #+BEGIN_SRC screen
 ghci> 2 /= 3
 True
 #+END_SRC
 
-Also, where C-like languages often use ~!~ for logical negation,
-Haskell uses the ~not~ function.
+Ngoài ra, trong khi các ngôn ngữ tựa C thường dùng ~!~ cho phủ định logic,
+Haskell lại dùng hàm ~not~.
 
 #+BEGIN_SRC screen
 ghci> not True
