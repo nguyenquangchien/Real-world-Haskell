@@ -349,15 +349,14 @@ ghci> not True
 False
 #+END_SRC
 
-*** Operator precedence and associativity
+*** Toán tử: thứ tự ưu tiên và sự kết hợp
 
-Like written algebra and other programming languages that use
-infix operators, Haskell has a notion of operator precedence. We
-can use parentheses to explicitly group parts of an expression,
-and precedence allows us to omit a few parentheses. For example,
-the multiplication operator has a higher precedence than the
-addition operator, so Haskell treats the following two expressions
-as equivalent.
+Cũng như toán đại số hay các ngôn ngữ lập trình khác có dùng
+toán tử trung tố, Haskell cũng có khái niệm ưu tiên toán tử.
+Ta có thể dùng ngoặc tròn để viết rõ các cụm biểu thức cần nhóm lại,
+và thứ tự ưu tiên sẽ cho phép ta bỏ qua vài dấu ngoặc tròn. Chẳng hạn, 
+toán tử nhân có mức ưu tiên cao hơn toán tử cộng, 
+bởi vậy Haskell sẽ coi rằng hai biểu thức sau là tương đương.
 
 #+BEGIN_SRC screen
 ghci> 1 + (4 * 4)
@@ -366,11 +365,11 @@ ghci> 1 + 4 * 4
 17
 #+END_SRC
 
-Haskell assigns numeric precedence values to operators, with 1
-being the lowest precedence and 9 the highest. A higher-precedence
-operator is applied before a lower-precedence operator. We can use
-~ghci~ to inspect the precedence levels of individual operators,
-using its ~:info~ command.
+Haskell đánh số mức độ ưu tiên cho các toán tử, với mức 1 là
+mức ưu tiên thấp nhất và 9 ưu tiên cao nhất. Một toán tử có
+mức ưu tiên cao hơn thì được áp dụng trước toán tử ưu tiên thấp.
+Ta có thể dùng ~ghci~ để điều tra mức ưu tiên của từng toán tử,
+bằng lệnh ~:info~.
 
 #+BEGIN_SRC screen
 ghci> :info (+)
@@ -388,19 +387,19 @@ class (Eq a, Show a) => Num a where
 infixl 7 *
 #+END_SRC
 
-The information we seek is in the line "~infixl 6 +~", which
-indicates that the ~(+)~ operator has a precedence of 6. (We will
-explain the other output in a later chapter.) The "~infixl 7 *~"
-tells us that the ~(*)~ operator has a precedence of 7. Since
-~(*)~ has a higher precedence than ~(+)~, we can now see why
-~1 + 4 * 4~ is evaluated as ~1 + (4 * 4)~, and not ~(1 + 4) * 4~.
+Thông tin mà ta cần tìm ở dòng "~infixl 6 +~", vốn
+cho thấy rằng toán tử ~(+)~ có mức ưu tiên bằng 6. (Chúng tôi sẽ
+giải thích thêm về những thông in khác ở một chương sau này.) 
+Còn "~infixl 7 *~" cho ta biết rằng toán tử ~(*)~ có mức ưu tiên 7. Vì
+~(*)~ có mức ưu tiên cao hơn ~(+)~, ta thấy vì sao
+~1 + 4 * 4~ được ước lượng thành ~1 + (4 * 4)~, chứ không phải ~(1 + 4) * 4~.
 
-Haskell also defines /associativity/ of operators. This determines
-whether an expression containing multiple uses of an operator is
-evaluated from left to right, or right to left. The ~(+)~ and
-~(*)~ operators are left associative, which is represented as
-~infixl~ in the ~ghci~ output above. A right associative operator
-is displayed with ~infixr~.
+Haskell cũng định nghĩa /tính kết hợp/ của các toán tử. Điều này
+quy định xem liệu một biểu thức chứa nhiều toán tử cùng loại được
+ước lượng từ trái qua phải hay từ phải qua trái. Các toán tử ~(+)~ và
+~(*)~ đều kết hợp trái, vốn thể hiện bởi chữ
+~infixl~ trong thông tin mà ~ghci~ cho ta ở trên. Một toán tử kết hợp phải
+sẽ thể hiện bằng chữ ~infixr~.
 
 #+BEGIN_SRC screen
 ghci> :info (^)
@@ -408,21 +407,21 @@ ghci> :info (^)
 infixr 8 ^
 #+END_SRC
 
-The combination of precedence and associativity rules are usually
-referred to as /fixity/ rules.
+Sự kết hợp giữa các quy tắc ưu tiên và kết hợp thường được gọi là 
+quy tắc /ấn định/ (fixity).
 
-*** Undefined values, and introducing variables
+*** Các giá trị không xác định, và giới thiệu các biến
 
-Haskell's prelude, the standard library we mentioned earlier,
-defines at least one well-known mathematical constant for us.
+Đoạn đầu của Haskell, thư viện chuẩn mà ta đã đề cập trước đây, 
+đã định nghĩa cho ta ít nhất là một hằng số toán học thông dụng.
 
 #+BEGIN_SRC screen
 ghci> pi
 3.141592653589793
 #+END_SRC
 
-But its coverage of mathematical constants is not comprehensive,
-as we can quickly see. Let us look for Euler's number, ~e~.
+Nhưng ta sẽ sớm thấy rằng thư viện chuẩn này không có đầy đủ các 
+hằng số toán học. Hãy tìm số Euler, ~e~, xem sao.
 
 #+BEGIN_SRC screen
 ghci> e
@@ -430,32 +429,32 @@ ghci> e
 <interactive>:1:1: error: Variable not in scope: e
 #+END_SRC
 
-Oh well. We have to define it ourselves.
+Ồ được rồi. Ta phải tự định nghĩa lấy nó.
 
 #+BEGIN_NOTE
-Don't worry about the error message
+Đừng lo khi thấy các thông báo lỗi
 
-If the above "not in scope" error message seems a little
-daunting, do not worry. All it means is that there is no variable
-defined with the name ~e~.
+Nếu thông báo lỗi "not in scope" (ngoài phạm vi) có vẻ ghê gớm, 
+đừng lo lắng. Nó chỉ muốn báo rằng không có biến nào 
+được định nghĩa với tên ~e~.
 #+END_NOTE
 
-Using ~ghci~'s ~let~ construct, we can make a temporary definition
-of ~e~ ourselves.
+Bằng cách dùng cấu trúc ~let~ trong ~ghci~, ta có thể tự 
+định nghĩa tạm thời cho ~e~.
 
 #+BEGIN_SRC screen
 ghci> e = exp 1
 #+END_SRC
 
-This is an application of the exponential function, ~exp~, and our
-first example of applying a function in Haskell. While languages
-like Python require parentheses around the arguments to a
-function, Haskell does not.
+Ở đây ta áp dụng hàm mũ, ~exp~, và cũng là ví dụ đầu tiên
+về việc áp dụng hàm trong Haskell. Nếu như các ngôn ngữ
+như Python yêu cầu có ngoặc tròn bao quanh các đối số cho
+hàm, thì Haskell không cần.
 
-With ~e~ defined, we can now use it in arithmetic expressions. The
-~(^)~ exponentiation operator that we introduced earlier can only
-raise a number to an integer power. To use a floating point number
-as the exponent, we use the ~(**)~ exponentiation operator.
+Với ~e~ đã định nghĩa, ta có thể dùng nó cho các biểu thức toán.
+Toán tử mũ ~(^)~ mà chúng tôi đã giới thiệu trước đây chỉ có thể 
+nâng lên một lũy thừa số nguyên. Để tính với số mũ là một
+số phẩy động, ta dùng toán tử mũ ~(**)~.
 
 #+BEGIN_SRC screen
 ghci> (e ** pi) - pi
@@ -463,29 +462,30 @@ ghci> (e ** pi) - pi
 #+END_SRC
 
 #+BEGIN_WARNING
-This syntax is ghci-specific
+Cú pháp này chỉ có riêng trong ghci
 
-The syntax for ~let~ that ~ghci~ accepts is not the same as we
-would use at the "top level" of a normal Haskell program. We will
-see the normal syntax in
-[[file:3-defining-types-streamlining-functions.org::*Introducing local variables][the section called "Introducing local variables"]]
+Cú pháp ~let~ mà ~ghci~ chấp nhận thì khác với cú pháp
+dùng trong "tầng đỉnh" của một chương trình Haskell thông thường.
+Ta sẽ thấy cú pháp thông thường ở
+[[file:3-defining-types-streamlining-functions.org::*Introducing local variables][mục "Giới thiệu các biến địa phương"]]
 #+END_WARNING
 
-*** Dealing with precedence and associativity rules
+*** Xử lý các quy tắc ưu tiên và kết hợp
 
-It is sometimes better to leave at least some parentheses in
-place, even when Haskell allows us to omit them. Their presence
-can help future readers (including ourselves) to understand what
-we intended.
+Đôi khi ta vẫn nên để lại vài cặp ngoặc tròn trong biểu thức, 
+dù Haskell có cho phép bỏ qua chúng. Sự có mặt những ngoặc tròn
+này có thể giúp độc giả về sau (và cả chúng ta nữa) hiểu được
+mã lệnh muốn làm gì.
 
-Even more importantly, complex expressions that rely completely on
-operator precedence are notorious sources of bugs. A compiler and
-a human can easily end up with different notions of what even a
-short, parenthesis-free expression is supposed to do.
+Quan trọng hơn nữa còn là vì những biểu thức phức tạp mà phụ thuộc
+hoàn toàn vào thứ tự ưu tiên toán tử sẽ nhen nhóm nên những lỗi
+rất đáng sợ. Hoàn toàn có thể xảy ra trường hợp trình biên dịch 
+và con người hình dung khác đi về ý nghĩa của một biểu thức ngắn 
+mà không có ngoặc tròn. 
 
-There is no need to remember all of the precedence and
-associativity rules numbers: it is simpler to add parentheses if
-you are unsure.
+Cũng không cần nhớ hết tất cả quy tắc ưu tiên và kết hợp: nếu bạn
+không chắc thì tốt nhất là cứ điền ngoặc tròn vào.
+
 
 ** Command line editing in ghci
 
@@ -948,7 +948,7 @@ the real world! In the chapters that follow, we will successively
 fill the gaps in our understanding until we can write programs of
 our own.
 
-** Exercises
+** Bài tập
 
 1. Enter the following expressions into ~ghci~. What are their
    types?
