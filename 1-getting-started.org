@@ -487,33 +487,33 @@ Cũng không cần nhớ hết tất cả quy tắc ưu tiên và kết hợp: n
 không chắc thì tốt nhất là cứ điền ngoặc tròn vào.
 
 
-** Command line editing in ghci
+** Biên tập dòng lệnh trong ghci
 
-On most systems, ~ghci~ has some amount of command line editing
-ability. In case you are not familiar with command line editing,
-it's a huge time saver. The basics are common to both Unix-like
-and Windows systems. Pressing the ↑ key on your keyboard recalls
-the last line of input you entered; pressing ↑ repeatedly cycles
-through earlier lines of input. You can use the ← and → arrow keys
-to move around inside a line of input. On Unix (but not Windows,
-unfortunately), the ~tab~ key completes partially entered
-identifiers.
+Ở đa số hệ thống, ~ghci~ có một số khả năng biên tập dòng lệnh.
+Nếu bạn chưa quen với việc biên tập dòng lệnh thì những tính năng
+này sẽ giúp bạn nhiều thời gian. Những tính năng cơ bản giống nhau 
+ở cả các hệ tựa Unix và Windows. Ấn phím ↑ sẽ gọi lại 
+câu lệnh gần nhất mà bạn đã nhập vào; ấn phím ↑ liên tiếp sẽ 
+duyệt qua các câu lệnh nhập vào trước đây. Bạn có thể dùng các phím 
+mũi tên ← và → để di chuyển trong một dòng lệnh. Ở Unix (nhưng không 
+may là Windows không làm được), phím ~tab~ sẽ điền nốt những 
+tên gọi bạn đang gõ dở.
 
 #+BEGIN_TIP
-Where to look for more information
+Tìm thông tin ở đâu?
 
-We've barely scratched the surface of command line editing here.
-Since you can work more effectively if you're more familiar with
-the capabilities of your command line editing system, you might
-find it useful to do some further reading. ~ghci~ uses the
-Haskeline library under the hood, which is [[https://github.com/judah/haskeline/wiki/KeyBindings][powerful]] and
-[[https://github.com/judah/haskeline/wiki/UserPreferences][customisable]].
+Ở đây, chúng tôi đã nói qua cách biên tập dòng lệnh. 
+Vì bạn có thể làm việc hiệu quả hơn nếu đã quen với 
+các tính năng của hệ thống biên tập dòng lệnh, nên có lẽ 
+một số tài liệu đọc thêm sẽ hữu ích. ~ghci~ dùng 
+thư viện Haskeline làm nền tảng, thư viện này rất [[https://github.com/judah/haskeline/wiki/KeyBindings][mạnh mẽ]] 
+và [[https://github.com/judah/haskeline/wiki/UserPreferences][có thể tuỳ chỉnh]].
 #+END_TIP
 
-** Lists
+** Danh sách
 
-A list is surrounded by square brackets; the elements are
-separated by commas.
+Một danh sách được bao quanh bởi cặp ngoặc vuông; các phần tử
+phân tách bởi dấu phẩy.
 
 #+BEGIN_SRC screen
 ghci> [1, 2, 3]
@@ -521,15 +521,15 @@ ghci> [1, 2, 3]
 #+END_SRC
 
 #+BEGIN_NOTE
-Commas are separators, not terminators
+Dấu phẩy là dấu phân cách chứ không phải dấu kết thúc
 
-Some languages permit the last element in a list to be followed by
-an optional trailing comma before a closing bracket, but Haskell
-doesn't allow this. If you leave in a trailing comma (e.g.
-~[1,2,]~), you'll get a parse error.
+Trong một số ngôn ngữ, phần tử cuối của danh sách có thể kết thúc
+bởi một dấu phẩy hay không đều được trước khi đóng ngoặc vuông. Song Haskell
+không cho phép điều này. Nếu bạn để lại một dấu phẩy ở cuối (như 
+~[1,2,]~), bạn sẽ bị một lỗi phân tách (parse).
 #+END_NOTE
 
-A list can be of any length. The empty list is written ~[]~.
+Một danh sách có thể dài tuỳ ý. Danh sách rỗng được viết là ~[]~.
 
 #+BEGIN_SRC screen
 ghci> []
@@ -538,9 +538,9 @@ ghci> ["foo", "bar", "baz", "quux", "fnord", "xyzzy"]
 ["foo","bar","baz","quux","fnord","xyzzy"]
 #+END_SRC
 
-All elements of a list must be of the same type. Here, we violate
-this rule: our list starts with two Bool values, but ends with a
-string.
+Mọi phần tử trong danh sách đều có cùng kiểu. Ở đây, ta vi phạm 
+nguyên tắc này: danh sách của ta bắt đầu bằng hai giá trị Bool values, 
+song lại kết thúc bởi một chuỗi.
 
 #+BEGIN_SRC screen
 ghci> [True, False, "testing"]
@@ -552,29 +552,29 @@ ghci> [True, False, "testing"]
       In an equation for ‘it’: it = [True, False, "testing"]
 #+END_SRC
 
-Once again, ~ghci~'s error message is verbose, but it's simply
-telling us that there is no way to turn the string into a Boolean
-value, so the list expression isn't properly typed.
+Một lần nữa, thông báo lỗi của ~ghci~ rất dài dòng, nhưng nó đơn giản là 
+báo cho ta biết rằng không có cách nào chuyển từ chuỗi sang một giá trị Boole
+được, nên biểu thức danh sách không thể định kiểu đúng.
 
-If we write a series of elements using /enumeration notation/,
-Haskell will fill in the contents of the list for us.
+Nếu ta viết một dãy các phần tử bằng /kí pháp liệt kê/,
+Haskell sẽ tự điền nội dung danh sách cho ta.
 
 #+BEGIN_SRC screen
 ghci> [1..10]
 [1,2,3,4,5,6,7,8,9,10]
 #+END_SRC
 
-Here, the ~..~ characters denote an /enumeration/. We can only use
-this notation for types whose elements we can enumerate. It makes
-no sense for text strings, for instance: there is not any
-sensible, general way to enumerate ~["foo".."quux"]~.
+Ở đây, các kí tự ~..~ biểu diễn cho /liệt kê/. Ta chỉ có thể dùng
+kí pháp này cho những kiểu mà phần tử chúng liệt kê được. Đối với 
+các chuỗi kí tự, thì liệt kê như vậy không có ý nghĩa gì, chẳng hạn 
+không có cách tổng quát và hợp lý nào để liệt kê ~["foo".."quux"]~.
 
-By the way, notice that the above use of range notation gives us a
-/closed interval/; the list contains both endpoints.
+Nhân thể, hãy lưu ý rằng cách viết khoảng như vậy sẽ cho ta một
+/khoảng kín/; danh sách có chứa cả hai phần tử đầu, cuối.
 
-When we write an enumeration, we can optionally specify the size
-of the step to use by providing the first two elements, followed
-by the value at which to stop generating the enumeration.
+Khi viết một liệt kê, ta có thể tuỳ ý có hoặc không quy định kích thước 
+của bước nhảy, bằng cách cung cấp hai phần tử đầu tiên, tiếp theo là 
+giá trị để kết thúc dãy liệt kê. 
 
 #+BEGIN_SRC screen
 ghci> [1.0,1.25..2.0]
@@ -585,41 +585,41 @@ ghci> [10,9..1]
 [10,9,8,7,6,5,4,3,2,1]
 #+END_SRC
 
-In the latter case above, the list is quite sensibly missing the
-end point of the enumeration, because it isn't an element of the
-series we defined.
+Ở trường hợp thứ hai nêu trên, danh sách thiếu mất điểm cuối của 
+liệt kê, song điều này hợp lý vì nó không phải phần tử thuộc về
+danh sách mà ta đã định nghĩa. 
 
-We can omit the end point of an enumeration. If a type doesn't
-have a natural "upper bound", this will produce values
-indefinitely. For example, if you type ~[1..]~ at the ~ghci~
-prompt, you'll have to interrupt or kill ~ghci~ to stop it from
-printing an infinite succession of ever-larger numbers. If you are
-tempted to do this, type ~Ctrl-C~ to halt the enumeration. We will
-find later on that infinite lists are often useful in Haskell.
+Ta có thể bỏ qua phần tử cuối của một liệt kê. Nếu một kiểu dữ liệu 
+không có một "giới hạn trên" tự nhiên, thì việc đó sẽ tạo ra 
+vô hạn các giá trị. Chẳng hạn, nếu bạn gõ ~[1..]~ vào dấu nhắc ~ghci~,
+thì bạn sẽ phải gián đoạn hoặc huỷ ~ghci~ để ngăn nó khỏi in ra 
+một dãy vô hạn các số ngày càng lớn hơn. Nếu bạn thôi thúc muốn 
+làm điều này, hãy gõ ~Ctrl-C~ để kết thúc liệt kê. Sau này ta sẽ 
+thấy được những danh sách vô hạn như vậy thường hữu ích trong Haskell.
 
 #+BEGIN_WARNING
-Beware enumerating floating point numbers
+Hãy cẩn thận với liệt kê các số phẩy động 
 
-Here's a non-intuitive bit of behaviour.
+Dưới đây là một biểu hiện trái với trực giác ta.
 
 #+BEGIN_SRC screen
 ghci> [1.0..1.8]
 [1.0,2.0]
 #+END_SRC
 
-Behind the scenes, to avoid floating point roundoff problems, the
-Haskell implementation enumerates from ~1.0~ to ~1.8+0.5~.
+Phía nội tình, để tránh các vấn đề làm tròn số phẩy động, Haskell thực hiện 
+liệt kê từ ~1.0~ đến ~1.8+0.5~.
 
-Using enumeration notation over floating point numbers can pack
-more than a few surprises, so if you use it at all, be careful.
-Floating point behavior is quirky in all programming languages;
-there is nothing unique to Haskell here.
+Việc dùng kí pháp liệt kê với các số phẩy động có thể kéo theo nhiều
+bất ngờ, nên nếu bạn buộc phải dùng đến nó, hãy cẩn thận. Biểu hiện 
+của dấu phẩy động rất lắt léo trong mọi ngôn ngữ lập trình chứ 
+không riêng gì Haskell.
 #+END_WARNING
 
-*** Operators on lists
+*** Các toán tử trên danh sách
 
-There are two ubiquitous operators for working with lists. We
-concatenate two lists using the ~(++)~ operator.
+Có hai toán tử thông dụng để làm việc với danh sách. Ta nối 
+hai danh sách bằng toán tử ~(++)~.
 
 #+BEGIN_SRC screen
 ghci> [3,1,3] ++ [3,7]
@@ -628,8 +628,8 @@ ghci> [] ++ [False,True] ++ [True]
 [False,True,True]
 #+END_SRC
 
-More basic is the ~(:)~ operator, which adds an element to the
-front of a list. This is pronounced "cons" (short for
+Cơ bản hơn là toán tử ~(:)~, để thêm một phần tử vào 
+đầu danh sách. Toán tử này đọc là "cons" (đọc tắt từ
 "construct").
 
 #+BEGIN_SRC screen
@@ -639,10 +639,10 @@ ghci> 1 : []
 [1]
 #+END_SRC
 
-You might be tempted to try writing ~[1,2] : 3~ to add an element
-to the end of a list, but ~ghci~ will reject this with an error
-message, because the first argument of ~(:)~ must be an element,
-and the second must be a list.
+Bạn có thể muốn thử viết ~[1,2] : 3~ để thêm một phần tử vào 
+cuối một danh sách, song ~ghci~ sẽ từ chối yêu cầu này với 
+thông báo lỗi, vì phần tử đầu tiên của ~(:)~ phải là một phần tử,
+còn phần tử thứ hai phải là một danh sách.
 
 ** Strings and characters
 
