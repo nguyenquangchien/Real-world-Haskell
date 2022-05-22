@@ -644,24 +644,24 @@ cuối một danh sách, song ~ghci~ sẽ từ chối yêu cầu này với
 thông báo lỗi, vì phần tử đầu tiên của ~(:)~ phải là một phần tử,
 còn phần tử thứ hai phải là một danh sách.
 
-** Strings and characters
+** Chuỗi và kí tự
 
-If you know a language like Perl or C, you'll find Haskell's
-notations for strings familiar.
+Nếu đã biết một ngôn ngữ như Perl hay C, bạn sẽ thấy khái niệm 
+chuỗi của Haskell cũng tương tự.
 
-A text string is surrounded by double quotes.
+Một chuỗi kí tự được bao quanh bởi hai dấu nháy kép.
 
 #+BEGIN_SRC screen
 ghci> "This is a string."
 "This is a string."
 #+END_SRC
 
-As in many languages, we can represent hard-to-see characters by
-"escaping" them. Haskell's escape characters and escaping rules
-follow the widely used conventions established by the C language.
-For example, ~'\n'~ denotes a newline character, and ~'\t'~ is a
-tab character. For complete details, see
-[[file:appendix-characters-strings-and-escaping-rules.org][Appendix B, /Characters, strings, and escaping rules/]].
+Cũng như ở nhiều ngôn ngữ, ta có thể biểu diễn những kí tự khó thấy
+bằng cách "thoát" chúng. Những kí tự thoát và quy tắc thoát của Haskell 
+tuân theo những quy ước thông dụng đã thiết lập bởi ngôn ngữ C. 
+Chẳng hạn, ~'\n'~ biểu diễn một kí tự xuống dòng, còn ~'\t'~ là
+kí tự tab. Để biết toàn bộ chi tiết, hãy xem 
+[[file:appendix-characters-strings-and-escaping-rules.org][Phụ lục B, /Kí tự, chuỗi, và quy tắc thoát/]].
 
 #+BEGIN_SRC screen
 ghci> putStrLn "Here's a newline -->\n<-- See?"
@@ -669,17 +669,17 @@ Here's a newline -->
 <-- See?
 #+END_SRC
 
-Haskell makes a distinction between single characters and text
-strings. A single character is enclosed in single quotes.
+Haskell lập sự khác biệt giữa một kí tự và một chuỗi. 
+Một kí tự thì được bao quanh bởi dấu nháy đơn.
 
 #+BEGIN_SRC screen
 ghci> 'a'
 'a'
 #+END_SRC
 
-In fact, a text string is simply a list of individual characters.
-Here's a painful way to write a short string, which ~ghci~ gives
-back to us in a more familiar form.
+Thực ra, chuỗi kí tự chỉ là một dãy các kí tự đơn lẻ. 
+Sau đây là cách vất vả để viết một chuỗi ngắn, mà ~ghci~ 
+trả lại cho ta dưới dạng quen thuộc hơn.
 
 #+BEGIN_SRC screen
 ghci> a = ['l', 'o', 't', 's', ' ', 'o', 'f', ' ', 'w', 'o', 'r', 'k']
@@ -689,15 +689,15 @@ ghci> a == "lots of work"
 True
 #+END_SRC
 
-The empty string is written ~""~, and is a synonym for ~[]~.
+Chuỗi rỗng được viết là ~""~, và đồng nghĩa với ~[]~.
 
 #+BEGIN_SRC screen
 ghci> "" == []
 True
 #+END_SRC
 
-Since a string is a list of characters, we can use the regular
-list operators to construct new strings.
+Vì một chuỗi là danh sách các kí tự, nên ta có thể dùng các 
+toán tử danh sách thông thường để lập nên những chuỗi mới.
 
 #+BEGIN_SRC screen
 ghci> 'a':"bc"
@@ -706,22 +706,21 @@ ghci> "foo" ++ "bar"
 "foobar"
 #+END_SRC
 
-** First steps with types
+** Bước đầu với kiểu dữ liệu
 
-While we've talked a little about types already, our interactions
-with ~ghci~ have so far been free of much type-related thinking.
-We haven't told ~ghci~ what types we've been using, and it's
-mostly been willing to accept our input.
+Dù ta đã nói đôi chút về kiểu dữ liệu rồi, song đến giờ những tương tác
+với ~ghci~ vẫn không liên quan nhiều tới kiểu dữ liệu. 
+Ta vẫn chưa bảo ~ghci~ rằng ta sử dụng kiểu gì, và ~ghci~
+nói chung sẽ sẵn sàng chấp nhận những gì ta nhập vào.
 
-Haskell requires type names to start with an uppercase letter, and
-variable names must start with a lowercase letter. Bear this in
-mind as you read on; it makes it much easier to follow the names.
+Haskell yêu cầu tên kiểu bắt đầu bằng chữ in, và tên biến 
+phải bắt đầu bằng chữ thường. Vừa đọc sách, bạn phải nhớ điều này;
+sẽ dễ theo dõi các tên hơn.
 
-The first thing we can do to start exploring the world of types is
-to get ~ghci~ to tell us more about what it's doing. ~ghci~ has a
-command, ~:set~, that lets us change a few of its default
-behaviours. We can tell it to print more type information as
-follows.
+Điều đầu tiên ta có thể làm để bắt đầu khám phá thế giới kiểu dữ liệu 
+là bắt ~ghci~ báo ta biết thêm rằng nó đang làm gì. ~ghci~ có một lệnh,
+~:set~, để cho phép ta thay đổi một số ứng xử mặc định của nó. 
+Ta có thể bảo nó in thêm thông tin về kiểu như sau.
 
 #+BEGIN_SRC screen
 ghci> :set +t
@@ -733,26 +732,26 @@ ghci> "foo"
 it :: [Char]
 #+END_SRC
 
-What the ~+t~ does is tell ~ghci~ to print the type of an
-expression after the expression. That cryptic ~it~ in the output
-can be very useful: it's actually the name of a special variable,
-in which ~ghci~ stores the result of the last expression we
-evaluated. (This isn't a Haskell language feature; it's specific
-to ~ghci~ alone.) Let's break down the meaning of the last line of
-~ghci~ output.
+~+t~ có nhiệm vụ bảo ~ghci~ in ra kiểu biểu thức theo sau biểu thức
+này. Trong kết quả đầu ra, chữ ~it~ bí hiểm có thể rất hữu ích:
+thực ra nó là tên của một biến đặc biệt,
+trong đó ~ghci~ lưu kết quả của biểu thức gần nhất mà ta vừa
+ước lượng. (Đây không phải một tính năng ngôn ngứ của Haskell; nó chỉ
+có riêng trong ~ghci~.) Hãy cùng mổ xẻ ý nghĩa của dòng kết quả 
+~ghci~ dưới cùng.
 
-- It's telling us about the special variable ~it~.
-- We can read text of the form ~x :: y~ as meaning "the
-  expression ~x~ has the type ~y~".
-- Here, the expression "it" has the type ~[Char]~. (The name
-  ~String~ is often used instead of ~[Char]~. It is simply a
-  synonym for ~[Char]~.)
+- Nó cho ta biết vê biến đặc biệt ~it~.
+- Ta có thể đọc dòng chữ có dạng ~x :: y~ là "biểu thức
+  ~x~ có kiểu ~y~".
+- Ở đây, biểu thức "it" có kiểu ~[Char]~. (Tên
+  ~String~ thường được dùng thay vì ~[Char]~. Đó đơn giản chỉ là
+  từ đồng nghĩa với ~[Char]~.)
 
 #+BEGIN_TIP
-The joy of "it"
+Niềm vui của "it"
 
-That ~it~ variable is a handy ~ghci~ shortcut. It lets us use the
-result of the expression we just evaluated in a new expression.
+Biến ~it~ là một cách viết tắt tiện dùng của ~ghci~. Nó cho phép ta dùng
+kết quả biểu thức vừa ước lượng trong một biểu thức mới.
 
 #+BEGIN_SRC screen
 ghci> "foo"
@@ -763,9 +762,9 @@ ghci> it ++ "bar"
 it :: [Char]
 #+END_SRC
 
-When evaluating an expression, ~ghci~ won't change the value of
-~it~ if the evaluation fails. This lets you write potentially
-bogus expressions with something of a safety net.
+Khi ước lượng một biểu thức, ~ghci~ không thay đổi giá trị của
+~it~ nếu việc ước lượng thất bại. Cách này cho phép bạn viết những
+biểu thức tiềm tàng sai sót khi đã có "lưới bảo hiểm" che đỡ.
 
 #+BEGIN_SRC screen
 ghci> it
@@ -786,15 +785,15 @@ ghci> it ++ "baz"
 it :: [Char]
 #+END_SRC
 
-When we couple ~it~ with liberal use of the arrow keys to recall
-and edit the last expression we typed, we gain a decent way to
-experiment interactively: the cost of mistakes is very low. Take
-advantage of the opportunity to make cheap, plentiful mistakes
-when you're exploring the language!
+Khi dùng kết hợp ~it~ với các phím mũi tên để gợi lại và biên tập 
+những biểu thức trước đó đã nhập, ta có một cách rất hay để thử nghiệm
+tương tác: mắc lỗi mà không phải trả giá nhiều. Hãy lợi dụng 
+cơ hội để dễ dàng tạo nên nhiều lỗi khi bạn đang khám phá 
+ngôn ngữ này!
 #+END_TIP
 
-Here are a few more of Haskell's names for types, from expressions
-of the sort we've already seen.
+Sau đây là một số tên trong Haskell để đặt cho các kiểu, từ những 
+biểu thức tương tự như ta đã thấy.
 
 #+BEGIN_SRC screen
 ghci> 7 ^ 80
@@ -802,12 +801,12 @@ ghci> 7 ^ 80
 it :: Integer
 #+END_SRC
 
-Haskell's integer type is named ~Integer~. The size of an
-~Integer~ value is bounded only by your system's memory capacity.
+Kiểu số truyên trong Haskell có tên là ~Integer~. Kích thước của một
+giá trị ~Integer~ chỉ bị hạn chế bởi dung lượng bộ nhớ trên hệ thống máy của bạn.
 
-Rational numbers don't look quite the same as integers. To
-construct a rational number, we use the ~(%)~ operator. The
-numerator is on the left, the denominator on the right.
+Các só hữu tỉ nhìn không giống số nguyên. Để lập một số hữu tỉ, 
+ta dùng toán tử ~(%)~. Tử số được viết bên trái, còn 
+mẫu số viết bên phải toán tử này.
 
 #+BEGIN_SRC screen
 ghci> :m +Data.Ratio
@@ -816,15 +815,15 @@ ghci> 11 % 29
 it :: Integral a => Ratio a
 #+END_SRC
 
-For convenience, ~ghci~ lets us abbreviate many commands, so we
-can write ~:m~ instead of ~:module~ to load a module.
+Để cho tiện, ~ghci~ cho phép ta viết tắt nhiều câu lệnh, vì vậy 
+ta có thể viết ~:m~ thay vì ~:module~ để nạp một module.
 
-Notice /two/ words on the right hand side of the ~::~ above. We
-can read this as a "ratio of integer". We might guess that a
-~Ratio~ must have values of type Integer as both numerator and
-denominator. Sure enough, if we try to construct a ~Ratio~ where
-the numerator and denominator are of different types, or of the
-same non-integral type, ~ghci~ complains.
+LƯu ý có /hai/ từ ở bên phải dấu ~::~ bên trên. Ta có thể
+đọc dòng này là "tỉ số giữa các số nguyên". Ta có thể đoán rằng
+~Ratio~ hẳn phải có cả tử lẫn mẫu số đều là những giá trị thưộc 
+kiểu Integer. Dĩ nhiên, nếu ta thử lập một ~Ratio~ trong đó
+tử và mẫu có kiểu khác nhau, hay đều cùng là một kiểu không phải 
+số nguyên thì ~ghci~ sẽ phàn nàn ngay.
 
 #+BEGIN_SRC screen
 ghci> 3.14 % 8
@@ -857,11 +856,11 @@ ghci> 1.2 % 3.4
     • In a stmt of an interactive GHCi command: print it
 #+END_SRC
 
-Although it is initially useful to have ~:set +t~ giving us type
-information for every expression we enter, this is a facility we
-will quickly outgrow. After a while, we will often know what type
-we expect an expression to have. We can turn off the extra type
-information at any time, using the ~:unset~ command.
+Dù ban đầu rất hữu ích khi ta có ~:set +t~ cung cấp thông tin về
+kiểu cho mọi biểu thức ta đã nhập vào, ta sẽ nhanh chóng quen 
+viết mã để có thể bỏ được tính năng này đi. Sau một hồi, ta thường
+biết được kiểu của một biểu thức sẽ phải là gì. Ta có thể tắt 
+thông báo kiểu này bằng lệnh ~:unset~.
 
 #+BEGIN_SRC screen
 ghci> :unset +t
@@ -869,8 +868,8 @@ ghci> 2
 2
 #+END_SRC
 
-Even with this facility turned off, we can still get that type
-information easily when we need it, using another ~ghci~ command.
+Ngay cả khi tắt tính năng này đi, ta vẫn có thể dễ dàng biết được 
+thông tin về kiểu khi cần đến, bằng một lệnh ~ghci~ khác.
 
 #+BEGIN_SRC screen
 ghci> :type 'a'
@@ -881,11 +880,12 @@ ghci> :type it
 it :: [Char]
 #+END_SRC
 
-The ~:type~ command will print type information for any expression
-we give it (including ~it~, as we see above). It won't actually
-evaluate the expression; it only checks its type and prints that.
+Lệnh ~:type~ sẽ in ra thông tin kiểu cho biểu thức bất kì mà 
+ta cung cấp (bao gồm cả ~it~, như đã thấy ở trên). Nó thực tế 
+còn không ước lượng cả biểu thức, mà chỉ kiểm tra kiểu của biểu thức 
+rồi in ra kiểu này.
 
-Why are the types reported for these two expressions different?
+Tại sao hai biểu thức sau lại cho ra các kiểu khác nhau?
 
 #+BEGIN_SRC screen
 ghci> 3 + 2
@@ -896,24 +896,24 @@ ghci> :type 3 + 2
 3 + 2 :: (Num t) => t
 #+END_SRC
 
-Haskell has several numeric types. For example, a literal number
-such as ~1~ could, depending on the context in which it appears,
-be an integer or a floating point value. When we force ~ghci~ to
-evaluate the expression ~3 + 2~, it has to choose a type so that
-it can print the value, and it defaults to ~Integer~. In the
-second case, we ask ~ghci~ to print the type of the expression
-without actually evaluating it, so it does not have to be so
-specific. It answers, in effect, "its type is numeric". We will
-see more of this style of type annotation in
-[[file:6-using-typeclasses.org][Chapter 6, Using Type Classes]].
+Haskell có vài kiểu số liệu. Chẳng hạn, một số nguyên văn 
+như ~1~, tuỳ theo bối cảnh mà nó  xuất hiện, có thể
+là một giá trị nguyên hoặc số phẩy động. Khi ta buộc ~ghci~
+phải ước lượng biểu thức ~3 + 2~, nó phải chọn một kiểu để 
+có thể in được giá trị, và mặc định là ~Integer~. Ở 
+trường hợp thứ hai, ta yêu cầu ~ghci~ in ra kiểu của biểu thức 
+mà không lượng giá, vì vậy nó không cần thiết phải cụ thể. 
+Câu trả lời đơn giản là "kiểu của nó là số". Ta sẽ còn thấy
+những chú thích kiểu này ở 
+[[file:6-using-typeclasses.org][Chương 6, Dùng lớp kiểu dữ liệu]].
 
-** A simple program
+** Một chương trình đơn giản 
 
-Let's take a small leap ahead, and write a small program that
-counts the number of lines in its input. Don't expect to
-understand this yet; it's just fun to get our hands dirty. In a
-text editor, enter the following code into a file, and save it as
-~WC.hs~.
+Hãy cùng nhảy tiến lên phía trước và viết một chương trình ngắn 
+để đếm số dòng được nhập vào. Đừng trông đợi rằng bạn sẽ 
+hiểu ngay; ví dụ vui này để bạn nghịch thử chút thôi. Dùng 
+trình biên tập chữ để nhập mã lệnh sau vào một file rồi lưu 
+với tên ~WC.hs~.
 
 #+CAPTION: wc.hs
 #+BEGIN_SRC haskell
@@ -936,22 +936,21 @@ Beaumont-en-Auge, France
 Ryazan, Russia
 #+END_SRC
 
-From a shell or command prompt, run the following command.
+Từ dấu nhắc lệnh hoặc Unix shell, hãy chạy lệnh sau.
 
 #+BEGIN_SRC screen
 $ runghc wc < quux.txt
 7
 #+END_SRC
 
-We have successfully written a simple program that interacts with
-the real world! In the chapters that follow, we will successively
-fill the gaps in our understanding until we can write programs of
-our own.
+Ta đã viết xong một chương trình đơn giản có tương tác với thế giới 
+thực! Ở những chương sau, ta sẽ liên tiếp điền vào những khoảng trống
+kiến thức đến khi ta có thể tự viết chương trình của riêng mình.
 
 ** Bài tập
 
-1. Enter the following expressions into ~ghci~. What are their
-   types?
+1. Nhập các biểu thức sau vào ~ghci~. Kiểu của chúng
+   là gì?
 
    - ~5 + 8~
    - ~3 * 5 + 8~
@@ -969,14 +968,14 @@ our own.
    - ~floor 3.7~
    - ~ceiling 3.3~
 
-2. From ~ghci~, type ~:?~ to print some help. Define a variable,
-   such as ~x = 1~, then type ~:show bindings~. What do you see?
-3. The ~words~ function counts the number of words in a string.
-   Modify the ~wc.hs~ example to count the number of words in a
+2. Từ ~ghci~, gõ vào ~:?~ để in ra lời trợ giúp. Hãy định nghĩa một biến,
+   như ~x = 1~, rồi gõ ~:show bindings~. Bạn thấy gì?
+3. Hàm ~words~ đếm số từ có trong một chuỗi.
+   Hãy chỉnh sửa ví dụ ~wc.hs~ để đếm số từ trong một
    file.
-4. Modify the ~wc.hs~ example again, to print the number of
-   characters in a file.
+4. Lại chỉnh sửa ví dụ ~wc.hs~, để in ra số kí tự có
+   trong một file.
 
-** Footnotes
+** Chú thích
 
-[fn:1] Incidentally, what do these cities have in common?
+[fn:1] Một cách tinh cờ, những thành số này có điểm gì chung?
