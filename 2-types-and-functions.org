@@ -1,39 +1,40 @@
-* Chapter 2: Types and Functions
+* Chương 2: Kiểu và hàm
 
-** Why care about types?
+** Kiểu dữ liệu có gì quan trọng?
 
-Every expression and function in Haskell has a /type/. For
-example, the value ~True~ has the type ~Bool~, while the value
-~"foo"~ has the type String. The type of a value indicates that it
-shares certain properties with other values of the same type. For
-example, we can add numbers, and we can concatenate lists; these
-are properties of those types. We say an expression "has type
-~X~", or "is of type ~X~".
+Trong Haskell, mỗi biểu thức và hàm đều có /kiểu/ (dữ liệu).
+Chẳng hạn, giá trị ~True~ có kiểu ~Bool~, còn giá trị
+~"foo"~ có kiểu String. Kiểu của một giá trị chỉ ra rằng
+giá trị đó chung các thuộc tính nhất định với những giá trị khác giống kiểu.
+Chẳng hạn, ta có thể cộng các số, và có thể nối các danh sách; đây 
+là những thuộc tính của các kiểu nêu trên. Ta nói một biểu thức 
+"có kiểu ~X~", hay "thuộc kiểu ~X~".
 
-Before we launch into a deeper discussion of Haskell's type
-system, let's talk about why we should care about types at all:
-what are they even /for/? At the lowest level, a computer is
-concerned with bytes, with barely any additional structure. What a
-type system gives us is /abstraction/. A type adds meaning to
-plain bytes: it lets us say "these bytes are text", "those bytes
-are an airline reservation", and so on. Usually, a type system
-goes beyond this to prevent us from accidentally mixing types up:
-for example, a type system usually won't let us treat a hotel
-reservation as a car rental receipt.
+Trước khi đi sâu vào thảo luận hệ thống kiểu của Haskell,
+hãy cùng nói về lí do tại sao ta lại cần phải để tâm đến các kiểu:
+chúng /để làm gi/? Ở cấp độ thấp nhất, máy tính chỉ
+quan tâm tới các byte, và hầu như chẳng có cấu trúc nào nữa. 
+Một hệ thống kiểu cho ta cái gọi là /trừu tượng hoá/. Một kiểu sẽ 
+thêm ý nghĩa vào các byte thuần tuý: kiểu cho phép ta nói
+"các bytes này là dòng chữ", "các byte nọ là 
+bản đặt chỗ hàng không", v.v. Thông thường, một hệ thống kiểu 
+còn đi xa hơn nữa và giúp ta tránh việc vô ý làm đảo lộn các kiểu: 
+chẳng hạn, một hệ thống kiểu thường sẽ không cho phép ta coi 
+bản đặt chỗ khách sạn như là một biên lai thuê xe.
 
-The benefit of introducing abstraction is that it lets us forget
-or ignore low-level details. If I know that a value in my program
-is a string, I don't have to know the intimate details of how
-strings are implemented: I can just assume that my string is going
-to behave like all the other strings I've worked with.
+Lợi ích từ việc giới thiệu trừu tượng hoá là nó cho phép ta quên đi
+hoặc phớt lờ những chi tiết ở cấp độ thấp. Nếu tôi biết rằng một giá trị
+trong chương trình là kiểu chuỗi thì tôi không cần biết chi li 
+các chuỗi được thực hiện ra sao: tôi cứ việc coi như chuỗi sẽ 
+ứng xử giống tất thảy các chuỗi khác mà tôi từng thao tác.
 
-What makes type systems interesting is that they're not all equal.
-In fact, different type systems are often not even concerned with
-the same kinds of problems. A programming language's type system
-deeply colours the way we think, and write code, in that language.
+Điều khiến cho hệ thống kiểu thú vị là ở chỗ không phải chúng đều như nhau.
+Sự thực là các hệ thống kiểu khác nhau thường không để tâm đến cùng 
+một kiểu bài toán. Hệ thống kiểu trong một ngôn ngữ lập trình nào
+thì khắc hoạ sâu sắc cách ta suy nghĩ và viết mã lệnh bằng ngôn ngữ đó.
 
-Haskell's type system allows us to think at a very abstract level:
-it permits us to write concise, powerful programs.
+Hệ thống kiểu Haskell cho phép ta nghĩ ở cấp độ rất trừu tượng: 
+nó cho phép ta viết các chương trình gọn gàng, mạnh mẽ.
 
 ** Haskell's type system
 
