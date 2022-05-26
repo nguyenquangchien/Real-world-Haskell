@@ -36,81 +36,82 @@ thì khắc hoạ sâu sắc cách ta suy nghĩ và viết mã lệnh bằng ng�
 Hệ thống kiểu Haskell cho phép ta nghĩ ở cấp độ rất trừu tượng: 
 nó cho phép ta viết các chương trình gọn gàng, mạnh mẽ.
 
-** Haskell's type system
+** Hệ thống kiểu Haskell
 
-There are three interesting aspects to types in Haskell: they are
-/strong/, they are /static/, and they can be automatically
-/inferred/. Let's talk in more detail about each of these ideas.
-When possible, we'll present similarities between concepts from
-Haskell's type system and related ideas in other languages. We'll
-also touch on the respective strengths and weaknesses of each of
-these properties.
+Các kiểu trong Haskell có ba điểm thú vị: chúng là kiểu
+/mạnh/, /tĩnh/, và có thể tự động /suy luận/ được. Hãy 
+cùng nhau nói thêm về từng khái niệm này.
+Mỗi khi có thể, chúng tôi sẽ trình bày sự giống nhau giữa
+các khái niệm hệ thống kiểu Haskell và các khái niệm liên quan
+trong những ngôn ngữ khác. Chúng tôi cũng sẽ đề cập tới các
+ưu điểm và nhược điểm của từng thuộc tính này.
 
-*** Strong types
+*** Kiểu mạnh
 
-When we say that Haskell has a /strong/ type system, we mean that
-the type system guarantees that a program cannot contain certain
-kinds of errors. These errors come from trying to write
-expressions that don't make sense, such as using an integer as a
-function. For instance, if a function expects to work with
-integers, and we pass it a string, a Haskell compiler will reject
-this.
+Khi nói Haskell có hệ thống kiểu /mạnh/, chúng tôi ngụ ý rằng
+hệ thống kiểu đảm bảo cho chương trình không thể chứa những 
+loại lỗi nhất định được. Những lỗi như vậy bắt nguồn từ việc
+viết các biểu thức vô nghĩa, như dùng một số nguyên làm
+mọt hàm. Chẳng hạn, nếu bạn trông đợi một hàm làm việc với
+số nguyên nhưng rồi lại truyền cho nó một chuỗi thì trình biên dịch
+Haskell sẽ từ chối việc này.
 
-We call an expression that obeys a language's type rules /well
-typed/. An expression that disobeys the type rules is /ill typed/,
-and will cause a /type error/.
+Ta gọi biểu thức tuân thủ theo quy tắc kiểu của ngôn ngữ là 
+biểu thức /đúng kiểu/. Một biểu thức vi phạm quy tắc về kiểu
+thì gọi là /sai kiểu/, và sẽ gây nên một /lỗi về kiểu/.
 
-Another aspect of Haskell's view of strong typing is that it will
-not automatically coerce values from one type to another.
-(Coercion is also known as casting or conversion.) For example, a
-C compiler will automatically and silently coerce a value of type
-int into a float on our behalf if a function expects a parameter
-of type float, but a Haskell compiler will raise a compilation
-error in a similar situation. We must explicitly coerce types by
-applying coercion functions.
+Một khía cạnh khác trong quan điểm của Haskell về định kiểu mạnh,
+đó là nó sẽ không tự động quy đổi giá trị qua lại giữa các kiểu được.
+Chẳng hạn, một trình biên dịch C sẽ lẳng lặng tự động quy đổi 
+giúp ta một giá trị nguyên sang kiểu phẩy động nếu một hàm trông đợi 
+tham số phải có kiểu phẩy động, nhưng trình biên dịch Haskell 
+sẽ báo lỗi biên dịch trong tình huống tương tự. Ta phải 
+minh bạch trong việc quy đổi kiểu bằng cách áp dụng hàm quy đổi.
 
-Strong typing does occasionally make it more difficult to write
-certain kinds of code. For example, a classic way to write
-low-level code in the C language is to be given a byte array, and
-cast it to treat the bytes as if they're really a complicated data
-structure. This is very efficient, since it doesn't require us to
-copy the bytes around. Haskell's type system does not allow this
-sort of coercion. In order to get the same structured view of the
-data, we would need to do some copying, which would cost a little
-in performance.
+Định kiểu mạnh đôi khi gây khó khăn trong việc viết những loại
+mã lệnh nhất định. Chẳng hạn, một cách kinh điển để viết 
+mã lệnh cấp độ thấp bằng ngôn ngữ C là với một mảng số kiểu byte
+đã cho, ta quy đổi dể coi những số byte này như thể cấu trúc 
+dữ liệu phức tạp. Cách này rất hiệu quả vì nó không yêu cầu ta phải
+sao chép các byte qua lại. Hệ thống kiểu Haskell thì không cho phép
+ta quy đổi vậy. Để có được cùng cái nhìn có cấu trúc về khối
+dữ liệu này, ta phải sao chép, và như vậy sẽ tốn thêm chút
+hiệu năng máy tính.
 
-The huge benefit of strong typing is that it catches real bugs in
-our code before they can cause problems. For example, in a
-strongly typed language, we can't accidentally use a string where
-an integer is expected.
+Lợi ích lớn của định kiểu mạnh là nó bắt được những lỗi thực sự nằm
+trong mã lệnh trước khi chúng gây nên trục trặc. Chẳng hạn, trong
+một ngôn ngữ định kiểu mạnh, ta không thể vô ý dùng một chuỗi 
+khi chương trình trông đợi số nguyên.
 
 #+BEGIN_NOTE
-Weaker and stronger types
+Các kiểu yếu và mạnh hơn
 
-It is useful to be aware that many language communities have their
-own definitions of a "strong type". Nevertheless, we will speak
-briefly and in broad terms about the notion of strength in type
-systems.
+Cần nhận thấy rằng nhiều cộng đồng ngôn ngữ có định nghĩa riêng của họ
+về một "kiểu mạnh". Tuy nhiên, chúng tôi sẽ nói vắn tắt và
+bằng những thuật ngữ chung về khái niệm độ mạnh trong hệ thống
+kiểu.
 
-In academic computer science, the meanings of "strong" and "weak"
-have a narrowly technical meaning: strength refers to /how
-permissive/ a type system is. A weaker type system treats more
-expressions as valid than a stronger type system.
+Giới khoa học máy tính coi ý nghĩa của "mạnh" và "yếu"
+chỉ hạn hẹp về mặt kĩ thuật: mạnh là nói xem một hệ thống kiểu 
+có /mức tùy tiện/ (permissive) đến đâu. Một hệ thống kiểu yếu 
+sẽ coi những biểu thức là đúng thường xuyên hơn so với 
+hệ thống kiểu mạnh.
 
-For example, in Perl, the expression ~"foo" + 2~ evaluates to the
-number 2, but the expression ~"13foo" + 2~ evaluates to the number
-~15~. Haskell rejects both expressions as invalid, because the ~(+)~
-operator requires both of its operands to be numeric. Because
-Perl's type system is more permissive than Haskell's, we say that
-it is weaker under this narrow technical interpretation.
+Chẳng hạn, trong Perl, biểu thức ~"foo" + 2~ ước lượng thành
+số 2, nhưng biểu thức ~"13foo" + 2~ lại ước lượng thành số
+~15~. Haskell bác bỏ cả hai biểu thức này, cho rằng chúng đều 
+không hợp lệ, vì toán tử ~(+)~ yêu cầu cả hai toán hạng đều
+phải là số. Vì hệ thống kiểu Perl tùy tiện hơn của Haskell, nên
+ta nói rằng hệ thống kiểu Perl yếu hơn theo nghĩa hẹp này.
 
-The fireworks around type systems have their roots in ordinary
-English, where people attach notions of /value/ to the words
-"weak" and "strong": we usually think of strength as better than
-weakness. Many more programmers speak plain English than academic
-jargon, and quite often academics /really are/ throwing brickbats
-at whatever type system doesn't suit their fancy. The result is
-often that popular Internet pastime, a flame war.
+Tranh cãi bùng nổ xoay quanh hệ thống kiểu đã bắt nguồn từ 
+tiếng Anh, khi người ta gắn khái niệm về /giá trị/ vào các từ
+"yếu" và "mạnh": ta thường nghĩ mạnh phải tốt hơn yếu. Lập trình 
+viên nói tiếng Anh giao tiếp thì nhiều hơn là nói thứ tiếng
+khoa học kĩ thuật, và nhiều lúc giới học thuật /thực sự/ đã
+bắt bẻ tài nhẫn những hệ thống kiểu mà họ không ưa. Kết quả là
+thường dẫn đến những cuộc cãi vã lê thê trên mạng, một kiểu
+giải trí hay gặp.
 #+END_NOTE
 
 *** Static types
