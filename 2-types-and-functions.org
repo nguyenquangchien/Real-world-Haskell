@@ -114,13 +114,14 @@ thường dẫn đến những cuộc cãi vã lê thê trên mạng, một ki�
 giải trí hay gặp.
 #+END_NOTE
 
-*** Static types
+*** Kiểu tĩnh
 
-Having a /static/ type system means that the compiler knows the
-type of every value and expression at compile time, before any
-code is executed. A Haskell compiler or interpreter will detect
-when we try to use expressions whose types don't match, and reject
-our code with an error message before we run it.
+Việc có một hệ thống kiểu /tĩnh/ đồng nghĩa với trình biên dịch
+biết được kiểu của từng giá trị và biểu thức tại lúc biên dịch, 
+trước khi thực thi mã lệnh. Trình biên dịch hoặc trình thông dịch
+Haskell sẽ phát hiện khi ta cố thử dùng các biểu thức mà 
+kiểu dữ liệu không khớp, và bác bỏ ngay mã lệnh có kèm theo một
+lời thông báo lỗi trước khi chạy mã.
 
 #+BEGIN_SRC screen
 ghci> True && "false"
@@ -132,61 +133,61 @@ ghci> True && "false"
       In an equation for ‘it’: it = True && "false"
 #+END_SRC
 
-This error message is of a kind we've seen before. The compiler
-has inferred that the type of the expression ~"false"~ is [Char].
-The ~(&&)~ operator requires each of its operands to be of type
-~Bool~, and its left operand indeed has this type. Since the
-actual type of ~"false"~ does not match the required type, the
-compiler rejects this expression as ill typed.
+Những lời thông báo lỗi như thế này ta chưa từng gặp. Trình biên dịch
+đã suy luận rằng kiểu của biểu thức ~"false"~ là [Char].
+Toán tử ~(&&)~ yêu cầu từng toán hạng phải thuộc kiểu
+~Bool~, và quả thực toán hạng bên trái của nó mang kiểu này. Vì 
+thực ra kiểu ~"false"~ không khớp với kiểu được yêu cầu nên 
+trình biên dịch đã bác bỏ biểu thức này với lí do sai kiểu.
 
-Static typing can occasionally make it difficult to write some
-useful kinds of code. In languages like Python, "duck typing" is
-common, where an object acts enough like another to be used as a
-substitute for it[fn:1]. Fortunately, Haskell's system of
-/type classes/, which we will cover in
-[[file:6-using-typeclasses.org][Chapter 6, Using Type Classes]], provides almost all of the
-benefits of dynamic typing, in a safe and convenient form. Haskell
-has some support for programming with truly dynamic types, though
-it is not quite as easy as in a language that wholeheartedly
-embraces the notion.
+Việc định kiểu tĩnh đôi khi có thể làm ta gặp khó khi viết mã lệnh
+hữu ích. Ở những ngôn ngữ như Python, "định kiểu vịt" rất
+thông dụng, trong đó đối tượng nào có biểu hiện đủ giống thứ
+đang xét sẽ được dùng để thay thế nó[fn:1]. Thật may là
+hệ thống /lớp kiểu/ của Haskell, mà ta sẽ đề cập trong 
+[[file:6-using-typeclasses.org][Chương 6, Sử dụng lớp kiểu]], 
+cho ta hầu hết những ưu điểm của định kiểu động, một cách
+rất an toàn và tiện dụng. Haskell có hỗ trợ lập trình với 
+kiểu động thực thụ, dù rằng không dễ như với một ngôn ngữ 
+vốn thuần túy theo khái niệm kiểu động này.
 
-Haskell's combination of strong and static typing makes it
-impossible for type errors to occur at runtime. While this means
-that we need to do a little more thinking "up front", it also
-eliminates many simple errors that can otherwise be devilishly
-hard to find. It's a truism within the Haskell community that once
-code compiles, it's more likely to work correctly than in other
-languages. (Perhaps a more realistic way of putting this is that
-Haskell code often has fewer trivial bugs.)
+Khả năng kết hợp định kiểu mạnh và tĩnh của Haskell giúp nó ngăn
+không cho xảy ra lỗi kiểu lúc chạy chương trình. Dù điều này 
+đồng nghĩa với việc ta phải nghĩ trước một số điều, nó cũng 
+loại trừ nhiều lỗi đơn giản mà sẽ cực kì khó tìm nếu không dựa vào
+tính năng này. Trong cộng đồng Haskell có một chân lí rằng một khi
+mã lệnh đã biên dịch được thì nhiều khả năng chương trình sẽ chạy 
+đúng hơn so với những ngôn ngữ khác. (Có lẽ một cách hiểu thực tế hơn
+đó là mã lệnh Haskell thường có ít lỗi lặt vặt.)
 
-Programs written in dynamically typed languages require large
-suites of tests to give some assurance that simple type errors
-cannot occur. Test suites cannot offer complete coverage: some
-common tasks, such as refactoring a program to make it more
-modular, can introduce new type errors that a test suite may not
-expose.
+Khi viết các chương trình bằng ngôn ngữ định kiểu động sẽ cần phải
+có khối lượng kiểm thử rất đồ sộ để đảm bảo rằng những lỗi định kiểu
+đơn giản không thể xảy ra. Bộ kiểm thử không bao quát hết được: 
+một số nhiệm vụ thông thường như tái cấu trúc lại một chương trình
+để nó được phân lập (modular) hơn, có thể sẽ đưa thêm những lỗi về kiểu
+mới mà bộ kiểm thử không phát hiện ra.
 
-In Haskell, the compiler proves the absence of type errors for us:
-a Haskell program that compiles will not suffer from type errors
-when it runs. Refactoring is usually a matter of moving code
-around, then recompiling and tidying up a few times until the
-compiler gives us the "all clear".
+Trong Haskell, trình biên dịch giúp ta chứng tỏ rằng các lỗi về kiểu
+không tồn tại: một chương trình Haskell đã biên dịch thì sẽ không bị 
+lỗi về kiểu khi chạy. Tái cấu trúc thường là việc thêm bớt mã lệnh, 
+và rồi biên dịch lại cùng với dọn dẹp thêm vài lượt nữa đến khi
+trình biên dịch báo cho ta "mọi thứ đều ổn".
 
-A helpful analogy to understand the value of static typing is to
-look at it as putting pieces into a jigsaw puzzle. In Haskell, if
-a piece has the wrong shape, it simply won't fit. In a dynamically
-typed language, all the pieces are 1x1 squares and always fit, so
-you have to constantly examine the resulting picture and check
-(through testing) whether it's correct.
+Một hình ảnh tương đồng giúp ta hiểu được giá trị của định kiểu tĩnh 
+là coi nó như việc đặt các miếng ghép trong trò chơi ghép hình. 
+Với Haskell, nếu một miếng có hình sai thì đơn giản là nó sẽ không
+cho phép đặt vào. Trong một ngôn ngữ định kiểu động thì mọi miếng ghép
+đều là hình vuông 1x1 và sẽ luôn xếp khít nhau, vì vậy bạn phải thường
+xuyên để ý hình được ghép thành và kiểm tra (qua việc kiểm thử)
+xem hình đó đúng không.
 
-*** Type inference
+*** Suy luận kiểu
 
-Finally, a Haskell compiler can automatically deduce the types of
-almost[fn:2] all expressions in a program. This process is known
-as /type inference/. Haskell allows us to explicitly declare the
-type of any value, but the presence of type inference means that
-this is almost always optional, not something we are required to
-do.
+Sau cùng, trình biên dịch Haskell có thể tự động suy luận kiểu của
+hầu hết[fn:2] mọi biểu thức trong một chương trình. Quá trình này
+được gọi là /suy luận kiểu/. Haskell cho phép ta khai báo minh bạch
+kiểu của mọi giá trị, nhưng gần như mọi trường hợp bạn không cần
+khai báo vì đã có suy luận kiểu rồi.
 
 ** What to expect from the type system
 
